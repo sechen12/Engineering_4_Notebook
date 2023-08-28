@@ -66,4 +66,3 @@ Your readme will have various images and gifs on it. Upload a test image and tes
 
 ### Test GIF
 ![yoda_gif](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/58a76a26-4be7-42b1-b9aa-21e74fee77a1)
-https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif
