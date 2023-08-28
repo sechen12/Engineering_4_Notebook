@@ -54,13 +54,11 @@ What went wrong / was challenging, how'd you figure it out, and what did you lea
 ## Media Test
 
 Your readme will have various images and gifs on it. Upload a test image and test gif to make sure you've got the process figured out. Pick whatever image and gif you want!
-
-[(https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/test.py)https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/test.py](http://www.google.com)
-![Yoda_Image.webp](images/your-image-name.png)
-![yoda_gif.gif](images/your-image-name.png)
+![Picture Name Here](images/your-image-name.png)
 
 ### Test Link
-
+[Hyperlink text](raspberry-pi/test.py)
 ### Test Image
-
+![download](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/18878092-65cb-4274-808c-5663b3607c01)
 ### Test GIF
+![yoda_gif](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/58a76a26-4be7-42b1-b9aa-21e74fee77a1)
