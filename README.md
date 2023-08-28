@@ -66,4 +66,4 @@ Your readme will have various images and gifs on it. Upload a test image and tes
 
 ### Test GIF
 
-![Picture Name Here](images/your-image-name.png)
+![Picture Name Here](https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true)https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true
