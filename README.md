@@ -55,6 +55,10 @@ What went wrong / was challenging, how'd you figure it out, and what did you lea
 
 Your readme will have various images and gifs on it. Upload a test image and test gif to make sure you've got the process figured out. Pick whatever image and gif you want!
 
+[(https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/test.py)https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/test.py](http://www.google.com)
+![Yoda_Image.webp](images/your-image-name.png)
+![yoda_gif.gif](images/your-image-name.png)
+
 ### Test Link
 
 ### Test Image
