@@ -1,0 +1,11 @@
+#type: ignore
+
+import board
+import time
+import digitalio
+
+GLed = digitalio.DigitalInOut(board.GP0)
+GLed.direction = digitalio.Direction.OUTPUT
+
+RLed = digitalio.DigitalInOut(board.GP1)
+RLed.direction = digitalio.Direction.OUTPUT
