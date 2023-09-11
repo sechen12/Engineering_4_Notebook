@@ -5,6 +5,7 @@
 ## Table of Contents
 * [Raspberry_Pi_Assignment_Template](#raspberry_pi_assignment_template)
 * [Onshape_Assignment_Template](#onshape_assignment_template)
+* [Launchpad_1_Countdown](#Launchpad_1_Countdown)
 
 &nbsp;
 
@@ -67,3 +68,31 @@ Your readme will have various images and gifs on it. Upload a test image and tes
 ### Test GIF
 
 ![Picture Name Here](https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true)https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true
+
+
+## Launchpad_1_Countdown
+
+### Assignment Description
+
+Using VS Code, make a program that counts down from 10, and when it reaches zero, to say "lift off".
+
+### Evidence
+
+[images_Countdown Evidence (1).webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/8326942f-afb0-4b5f-b39a-256e088f2aff)
+
+### Code
+
+```python
+import time
+import board
+import digitalio
+
+for x in range(10):
+    print(10-x) #prints 10 --> 1 in descending order
+    time.sleep(1) #delays the count by one second in between numbers
+print("liftoff!") #print liftoff when the rest of the code is finished running
+```
+
+### Reflection
+
+Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines.
