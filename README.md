@@ -64,6 +64,32 @@ Your readme will have various images and gifs on it. Upload a test image and tes
 
 ![Picture Name Here](https://raw.githubusercontent.com/sechen12/Engineering_4_Notebook/main/images/Yoda_SWSB.webp)https://raw.githubusercontent.com/sechen12/Engineering_4_Notebook/main/images/Yoda_SWSB.webp
 
+
+## Launchpad_1_Countdown
+
+### Assignment Description
+
+Using VS Code, make a program that counts down from 10, and when it reaches zero, to say "lift off".
+
+### Evidence 
+
+(https://drive.google.com/file/d/1yMJb1mw7gmo9VoNmt0guiUxAdfrZQi2e/view)
+
+### Code
+
+import time
+import board
+import digitalio
+
+for x in range(10):
+    print(10-x) #prints 10 --> 1 in descending order
+    time.sleep(1) #delays the count by one second in between numbers
+print("liftoff!") #print liftoff when the rest of the code is finished running
+
+### Reflection
+
+Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines.
+
 ### Test GIF
 
 ![Picture Name Here](https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true)https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true
