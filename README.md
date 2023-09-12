@@ -92,6 +92,10 @@ for x in range(10):
     time.sleep(1) #delays the count by one second in between numbers
 print("liftoff!") #print liftoff when the rest of the code is finished running
 ```
+### Reflection
+
+Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines.
+
 
 ## Launchpad_2_Lights
 
@@ -101,7 +105,8 @@ To accompany the countdown, the assignment was to have 2 LEDs, one red, and one 
 
 ### Evidence
 
-[Uploading Launch Pad Part 2 (Lights)_ Sophie Chen.html…]()
+[[Uploading Launch Pad Part 2 (Lights)_ Sophie Chen.html…]()
+](https://cvilleschools.instructure.com/courses/40384/assignments/539326/submissions/6903)
 
 ### Wiring
 
@@ -134,10 +139,4 @@ while True:
     
 ### Reflection
 
-What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
-
-&nbsp;
-
-### Reflection
-
-Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines.
+This assignment was reletivel simple and logical. THe main problem I had was with the wiring. One of the LEDs was broken, but I didn't know that until I tried a few other LEDs. It's important to examine all possibilities as to why the program may not be running properly.
