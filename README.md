@@ -92,7 +92,50 @@ for x in range(10):
     time.sleep(1) #delays the count by one second in between numbers
 print("liftoff!") #print liftoff when the rest of the code is finished running
 ```
-
 ### Reflection
 
 Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines.
+
+
+## Launchpad_2_Lights
+
+### Assignment Description
+
+To accompany the countdown, the assignment was to have 2 LEDs, one red, and one green. WHile the countown was running, the red LED would blink for every number written in the Serial Monitor. When the program was finished running, and the final message presented was "Lift Off!", the green light would turn on indefinitely.
+
+### Evidence
+
+[Untitled_ Sep 12, 2023 10_27 AM.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/f450a972-42ab-49f4-add4-b162aa5fe4ad)
+
+### Wiring
+
+![WIN_20230912_10_36_38_Pro](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/1e97cb75-a83b-4a67-94e7-da0a4bc6e3bf)
+
+### Code
+
+```python
+#type: ignore
+import board
+import time
+import digitalio
+
+GLed = digitalio.DigitalInOut(board.GP0)
+GLed.direction = digitalio.Direction.OUTPUT
+RLed = digitalio.DigitalInOut(board.GP1)
+RLed.direction = digitalio.Direction.OUTPUT
+
+for x in range(10):
+    print(10-x) #prints 10 --> 1 in descending order
+    RLed.value = True
+    time.sleep(.5) #delays the count by one second in between numbers
+    RLed.value = False
+    time.sleep(.5)
+
+print("liftoff!") #print liftoff when the rest of the code is finished running
+while True:
+    GLed.value = True
+```
+    
+### Reflection
+
+This assignment was relatively simple and logical. THe main problem I had was with the wiring. One of the LEDs was broken, but I didn't know that until I tried a few other LEDs. It's important to examine all possibilities as to why the program may not be running properly.
