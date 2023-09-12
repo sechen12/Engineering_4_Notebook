@@ -105,8 +105,7 @@ To accompany the countdown, the assignment was to have 2 LEDs, one red, and one 
 
 ### Evidence
 
-[[Uploading Launch Pad Part 2 (Lights)_ Sophie Chen.html…]()
-](https://cvilleschools.instructure.com/courses/40384/assignments/539326/submissions/6903)
+[Untitled_ Sep 12, 2023 10_27 AM.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/f450a972-42ab-49f4-add4-b162aa5fe4ad)
 
 ### Wiring
 
