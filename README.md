@@ -93,6 +93,51 @@ for x in range(10):
 print("liftoff!") #print liftoff when the rest of the code is finished running
 ```
 
+## Launchpad_2_Lights
+
+### Assignment Description
+
+To accompany the countdown, the assignment was to have 2 LEDs, one red, and one green. WHile the countown was running, the red LED would blink for every number written in the Serial Monitor. When the program was finished running, and the final message presented was "Lift Off!", the green light would turn on indefinitely.
+
+### Evidence
+
+[Uploading Launch Pad Part 2 (Lights)_ Sophie Chen.html…]()
+
+### Wiring
+
+This may not be applicable to all assignments. Anything where you wire something up, include the wiring diagram here. The diagram should be clear enough that I can recreate the wiring from scratch. 
+
+### Code
+
+```python
+#type: ignore
+import board
+import time
+import digitalio
+
+GLed = digitalio.DigitalInOut(board.GP0)
+GLed.direction = digitalio.Direction.OUTPUT
+RLed = digitalio.DigitalInOut(board.GP1)
+RLed.direction = digitalio.Direction.OUTPUT
+
+for x in range(10):
+    print(10-x) #prints 10 --> 1 in descending order
+    RLed.value = True
+    time.sleep(.5) #delays the count by one second in between numbers
+    RLed.value = False
+    time.sleep(.5)
+
+print("liftoff!") #print liftoff when the rest of the code is finished running
+while True:
+    GLed.value = True
+```
+    
+### Reflection
+
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+
+&nbsp;
+
 ### Reflection
 
 Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines.
