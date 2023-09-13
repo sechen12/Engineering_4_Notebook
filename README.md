@@ -155,7 +155,7 @@ Continuing off of Launchpad 1 and 2, now we have added a button to determine whe
 
 ### Wiring
 
-[Launchpad 3.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/0061fb2d-1560-4d5c-91cd-0147d4f9e395)
+![IMG-2678](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/c6ad99c5-e26f-42e0-bb6e-18e7b30494e7)
 
 ### Code
 
