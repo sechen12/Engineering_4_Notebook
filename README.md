@@ -193,4 +193,5 @@ This assignment was relatively staight foward. It was the fastest for me to comp
 ```python
 if button.value == True:
 ```
-It was also recently clarified to me that the ```python While True: ```statement is used to continuously run the code. This statement was important in the "Button" code becuase the program needed to constantly check if the button was true or false (off/on). I made the mistake of not using a "While True" statement in my intial code.
+It was also recently clarified to me that the ```python
+While True: ```statement is used to continuously run the code. This statement was important in the "Button" code becuase the program needed to constantly check if the button was true or false (off/on). I made the mistake of not using a "While True" statement in my intial code.
