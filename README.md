@@ -6,6 +6,8 @@
 * [Raspberry_Pi_Assignment_Template](#raspberry_pi_assignment_template)
 * [Onshape_Assignment_Template](#onshape_assignment_template)
 * [Launchpad_1_Countdown](#Launchpad_1_Countdown)
+* [Launchpad_2_Lights](#Launchpad_2_Lights)
+* [Launchpad_3_Button](#Launchpad_3_Button)
 
 &nbsp;
 
@@ -135,7 +137,30 @@ print("liftoff!") #print liftoff when the rest of the code is finished running
 while True:
     GLed.value = True
 ```
-    
+
 ### Reflection
 
 This assignment was relatively simple and logical. THe main problem I had was with the wiring. One of the LEDs was broken, but I didn't know that until I tried a few other LEDs. It's important to examine all possibilities as to why the program may not be running properly.
+
+
+## Launchpad_3_Button
+
+### Assignment Description
+
+Continuing off of Launchpad 1 and 2, now we have added a button to determine when the the code for the lights and countdown are going to run.
+
+### Evidence
+
+[Launchpad 3.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/d34e8ce3-f540-47b6-96dc-4e0046250c24)
+
+### Wiring
+
+
+### Code
+
+```python
+
+```
+
+### Reflection
+
