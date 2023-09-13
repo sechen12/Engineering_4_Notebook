@@ -159,8 +159,38 @@ Continuing off of Launchpad 1 and 2, now we have added a button to determine whe
 ### Code
 
 ```python
+#type: ignore
+import board
+import time
+import digitalio
 
+GLed = digitalio.DigitalInOut(board.GP0)
+GLed.direction = digitalio.Direction.OUTPUT
+RLed = digitalio.DigitalInOut(board.GP1)
+RLed.direction = digitalio.Direction.OUTPUT
+button = digitalio.DigitalInOut(board.GP2)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.DOWN
+
+while True:
+    if button.value == True:
+        
+        for x in range(10):
+            print(10-x) #prints 10 --> 1 in descending order
+            RLed.value = True
+            time.sleep(.5) #delays the count by one second in between numbers
+            RLed.value = False
+            time.sleep(.5)
+
+        print("liftoff!") #print liftoff when the rest of the code is finished running
+        while True:
+            GLed.value = True
 ```
 
 ### Reflection
 
+This assignment was relatively staight foward. It was the fastest for me to complete because of the new knowledge I've collected about Circuit Python becuase of these "Launchpads". One thing I did have trouble on is figuring out the direction I wanted to pull the button. Unfortunately, I still don't understand how they work - I used trial and error to complete the code. Although the double/single equal sign difference is something that I should have been familiar with by now, I learned that the double equal sign (==) is used to check if what your statement is true:
+```python
+if button.value == True:
+```
+It was also recently clarified to me that the ```python While True: ```statement is used to continuously run the code. This statement was important in the "Button" code becuase the program needed to constantly check if the button was true or false (off/on). I made the mistake of not using a "While True" statement in my intial code.
