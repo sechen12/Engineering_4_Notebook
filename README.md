@@ -256,3 +256,13 @@ while True:
 
 ### Reflection
 
+This task was relatively simple - the most difficult part was the set up. In order to initialize the servo, you need to download a Circuit Python Library bundle, then move the Adafruit Servo folder into you lib folder on your board. Finally there are some lines of code you need to use to define the servo:
+```python
+pwm_servo = pwmio.PWMOut(board.GP15, duty_cycle=2 ** 15, frequency=50)
+servo1 = servo.Servo(pwm_servo, min_pulse=500, max_pulse=2500)
+servo1.angle = 0
+```
+Finally, you need to write the code for the servo, and by placing the line in the same loop as where you coded the green LED to turn on, the servo should turn your desired angle with the correct code:
+```python
+servo1.angle = 180
+```
