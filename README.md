@@ -209,6 +209,7 @@ When the code runs, when the button is pressed, the serial printer counts down f
 
 ### Wiring
 
+![Luanchpad_4_Servo_Capture](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/d004f71a-b694-4e0f-bc3c-6faea25e99a6)
 
 ### Code
 
@@ -266,3 +267,4 @@ Finally, you need to write the code for the servo, and by placing the line in th
 ```python
 servo1.angle = 180
 ```
+I also learned in terms of wiring, that the pin VBUS has 5V, and that's where the power of the servo pin should go.
