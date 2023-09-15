@@ -8,6 +8,7 @@
 * [Launchpad_1_Countdown](#Launchpad_1_Countdown)
 * [Launchpad_2_Lights](#Launchpad_2_Lights)
 * [Launchpad_3_Button](#Launchpad_3_Button)
+* [Launchpad_4_Servo](#Launchpad_4_Servo)
 
 &nbsp;
 
@@ -195,3 +196,63 @@ This assignment was relatively staight foward. It was the fastest for me to comp
 if button.value == True:
 ```
 It was also recently clarified to me that the ```While True: ```statement is used to continuously run the code. This statement was important in the "Button" code becuase the program needed to constantly check if the button was true or false (off/on). I made the mistake of not using a "While True" statement in my intial code.
+
+## Launchpad_4_Servo
+
+### Assignment Description
+
+When the code runs, when the button is pressed, the serial printer counts down from 10, presenting the according number every second. At the same time, a red LED blinks for every second, and a green LED turns on indefinitely, and a servo turns 180 degrees. We were building off the assignment above, but running a servo at the end of the code.
+
+### Evidence
+
+[Launchpad_4_Servo.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/c9ed09f7-a8c3-4a07-9740-14453d00eb11)
+
+### Wiring
+
+
+### Code
+
+```python
+#type: ignore
+import board
+import time
+import digitalio
+import pwmio
+from adafruit_motor import servo
+
+# defining LEDs/assigningvariables
+GLed = digitalio.DigitalInOut(board.GP0)
+GLed.direction = digitalio.Direction.OUTPUT
+RLed = digitalio.DigitalInOut(board.GP1)
+RLed.direction = digitalio.Direction.OUTPUT
+
+# defining button/assigningvariables
+button = digitalio.DigitalInOut(board.GP2)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.DOWN
+
+# defining servo/assigningvariables
+pwm_servo = pwmio.PWMOut(board.GP15, duty_cycle=2 ** 15, frequency=50)
+servo1 = servo.Servo(pwm_servo, min_pulse=500, max_pulse=2500)
+servo1.angle = 0
+
+
+while True:
+    if button.value == True:
+        
+        for x in range(10):
+            print(10-x) #prints 10 --> 1 in descending order
+            RLed.value = True
+            time.sleep(.5) #delays the count by one second in between numbers
+            RLed.value = False
+            time.sleep(.5)
+
+        print("liftoff!") #print liftoff when the rest of the code is finished running
+        while True:
+            GLed.value = True
+            servo1.angle = 180 # turns servo 180 degrees
+            print(servo1.angle) # double checking if code above was running
+```
+
+### Reflection
+
