@@ -9,6 +9,7 @@
 * [Launchpad_2_Lights](#Launchpad_2_Lights)
 * [Launchpad_3_Button](#Launchpad_3_Button)
 * [Launchpad_4_Servo](#Launchpad_4_Servo)
+* [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
 
 &nbsp;
 
@@ -268,3 +269,50 @@ Finally, you need to write the code for the servo, and by placing the line in th
 servo1.angle = 180
 ```
 I also learned in terms of wiring, that the pin VBUS has 5V, and that's where the power of the servo pin should go.
+
+## Crash_Avoidance_Accelerometer
+
+### Assignment Description
+
+We made a program that prints the MPU6050 acceleration data in the three axises: X, Y, and Z.
+
+### Evidence
+
+https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/e8f3c4e0-fcc9-4d31-8eea-d8e8141b4282
+
+### Wiring
+
+![Crash Avoidance Part 1 (Accelerometer)](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/eaa0a0c8-dd5c-4caf-a0c8-8d0d005a6e85)
+
+### Code
+
+```python
+#type: ignore
+import adafruit_mpu6050
+import busio
+import board
+import time
+import digitalio
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
+mpu = adafruit_mpu6050.MPU6050(i2c) # initializes the sensor
+
+
+while True:
+    print(f"x accelteration: {mpu.acceleration[0]}.") # this is an 'f-string'; it's a certain syntax that helps print the variables clearer
+    print(f"y accelteration: {mpu.acceleration[1]}.")
+    print(f"z accelteration: {mpu.acceleration[2]}.")
+    print("")
+    time.sleep(.5)
+```
+
+### Reflection
+
+This assignment was relatively simple. It required the downloading of certain libraries, the defining of variables, and the use of an f-string. Through past assignments, I learned how to use test codes to help the overall program run.At first, I had trouble with configuring the f-string, but when I used a test variable, and a test f-string, I learned the synatx, and how to code the accelerometer's values. Here is the test code I ran to help myself understand the f-string.
+```python
+f = 0 # test variable
+
+f("This is an f-string {f} and {f}.")
+```
