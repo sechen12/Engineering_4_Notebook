@@ -276,8 +276,9 @@ I also learned in terms of wiring, that the pin VBUS has 5V, and that's where th
 
 We made a program that prints the MPU6050 acceleration data in the three axises: X, Y, and Z.
 
-### Evidence 
+### Evidence
 
+[Untitled_ Sep 20, 2023 9_48 AM.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/7f815b31-edba-4bad-a11e-dc6c0ff28287)
 
 ### Wiring
 
