@@ -10,6 +10,7 @@
 * [Launchpad_3_Button](#Launchpad_3_Button)
 * [Launchpad_4_Servo](#Launchpad_4_Servo)
 * [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
+* [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
 
 &nbsp;
 
@@ -316,3 +317,44 @@ f = 0 # test variable
 
 f("This is an f-string {f} and {f}.")
 ```
+
+## Crash_Avoidance_Light_and_Power
+
+### Assignment Description
+
+### Evidence
+
+### Wiring
+
+### Code
+
+```python
+#type: ignore
+import adafruit_mpu6050
+import busio
+import board
+import time
+import digitalio
+
+sda_pin = board.GP14
+scl_pin = board.GP15
+i2c = busio.I2C(scl_pin, sda_pin)
+mpu = adafruit_mpu6050.MPU6050(i2c)
+led = digitalio.DigitalInOut(board.GP18)
+led.direction = digitalio.Direction.OUTPUT
+
+
+while True:
+    print(f"x accelteration: {mpu.acceleration[0]}.")
+    print(f"y accelteration: {mpu.acceleration[1]}.")
+    print(f"z accelteration: {mpu.acceleration[2]}.")
+    print("")
+    time.sleep(.5)
+
+    if mpu.acceleration[0] > 9 or mpu.acceleration[2] < 0:
+        led.value = True
+    else:
+        led.value = False
+```
+
+### Reflection
