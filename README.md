@@ -321,10 +321,14 @@ f("This is an f-string {f} and {f}.")
 ## Crash_Avoidance_Light_and_Power
 
 ### Assignment Description
-
+Using the values that we programed beofre in the accelerometer assignment, incorporate an LED that lights up when the acceleromter is tilted 90 degrees. The next step was adding a battery and a switch so that the Pico didn't have to be connected to the computer.
 ### Evidence
 
+https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/76175425-ae79-4eae-a74b-491b1ea28142
+
 ### Wiring
+
+![Crash Avoidance Light and Battery](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/3f39542b-988c-4ce4-a7c5-6cc62a276c7e)
 
 ### Code
 
