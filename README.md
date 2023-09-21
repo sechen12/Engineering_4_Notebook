@@ -10,6 +10,7 @@
 * [Launchpad_3_Button](#Launchpad_3_Button)
 * [Launchpad_4_Servo](#Launchpad_4_Servo)
 * [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
+* [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
 
 &nbsp;
 
@@ -316,3 +317,46 @@ f = 0 # test variable
 
 f("This is an f-string {f} and {f}.")
 ```
+
+## Crash_Avoidance_Light_and_Power
+
+### Assignment Description
+Using the values that we programed beofre in the accelerometer assignment, incorporate an LED that lights up when the acceleromter is tilted 90 degrees. The next step was adding a battery and a switch so that the Pico didn't have to be connected to the computer.
+### Evidence
+
+https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/76175425-ae79-4eae-a74b-491b1ea28142
+
+### Wiring
+
+![Crash Avoidance Light and Battery](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/3f39542b-988c-4ce4-a7c5-6cc62a276c7e)
+
+### Code
+
+```python
+#type: ignore
+import adafruit_mpu6050
+import busio
+import board
+import time
+import digitalio
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
+mpu = adafruit_mpu6050.MPU6050(i2c) # initializes the sensor
+
+
+while True:
+    print(f"x accelteration: {mpu.acceleration[0]}.") # this is an 'f-string'; it's a certain syntax that helps print the variables clearer
+    print(f"y accelteration: {mpu.acceleration[1]}.")
+    print(f"z accelteration: {mpu.acceleration[2]}.")
+    print("")
+    time.sleep(.5)
+
+    if mpu.acceleration[0] > 9 or mpu.acceleration[2] < 0: # if the x value is greater than 9, or the z value is less than 2, turn the LED on
+        led.value = True
+    else:
+        led.value = False # if the statement isn't true, don't turn the LED on
+```
+
+### Reflection
