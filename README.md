@@ -360,3 +360,4 @@ while True:
 ```
 
 ### Reflection
+I learned how to charge the battery; you have connect the battery to a 'battery charger', then connect it to a computer to let it charge for a few minutes before using it on the Pico. The coding portion of the assignment was the easiest concept to grasp. Becuase of mindless mistakes, the battery wouldn't connect to the Pico. For my next assignments, I can't forget that the breadboard rows run horizontally, and to connect wires together they need to be in the same row.
