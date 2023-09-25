@@ -22,7 +22,7 @@ display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) #
 display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
 
 while True:
-    if mpu.gyro[0] > 9 or mpu.gyro[2] < 0: # if the x value is greater than 9, or the z value is less than 2, turn the LED on
+    if mpu.acceleration[0] > 9 or mpu.acceleration[2] < 0: # if the x value is greater than 9, or the z value is less than 2, turn the LED on
         led.value = True
     else:
         led.value = False # if the statement isn't true, don't turn the LED on
