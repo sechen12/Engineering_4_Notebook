@@ -31,14 +31,9 @@ while True:
     splash = displayio.Group()
     title = "ANGULAR VELOCITY"
     text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5)
-    #text_areay = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=20)
-    #text_areaz = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=35)
     splash.append(text_area)
-    text_area.text = f"{round(mpu.gyro[0], 3)}"
+    text_area.text = f"{title}\n x values:{round(mpu.gyro[0], 3)}\n y values:{round(mpu.gyro[1], 3)}\n z values:{round(mpu.gyro[2], 3)}"
     display.show(splash)
-    # text_areax.text = (f"x accelteration: {mpu.gyro[0]}.")
-    # text_areay.text = (f"y accelteration: {mpu.gryo[1]}.")
-    # text_areaz.text = (f"z accelteration: {mpu.gyro[2]}.")
 
 ## MPU adress = 0x68
 ## OLED adress = 0x3d
