@@ -11,6 +11,7 @@
 * [Launchpad_4_Servo](#Launchpad_4_Servo)
 * [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
 * [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
+* [Crash_Avoidance_OLED_Screen](#Crash_Avoidance_OLED_Screen)
 
 &nbsp;
 
@@ -361,3 +362,20 @@ while True:
 
 ### Reflection
 I learned how to charge the battery; you have connect the battery to a 'battery charger', then connect it to a computer to let it charge for a few minutes before using it on the Pico. The coding portion of the assignment was the easiest concept to grasp. Becuase of mindless mistakes, the battery wouldn't connect to the Pico. For my next assignments, I can't forget that the breadboard rows run horizontally, and to connect wires together they need to be in the same row.
+
+## Crash_Avoidance_OLED_Screen
+
+### Assignment Description
+Add an OLED screen to the previous task - display the acceleration values on an OLED screen. The LED must turn on if the accelerometer is tilted 90 degrees, and the we must use a battery and a switch to power the code uploaded to the Pico, so that the Pico is diconnected from the breadboard.
+### Evidence
+
+[Crash_Avoidance_OLED_Screen.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/7e3d2df3-e860-463c-9bb3-80cd80173135)
+
+### Wiring
+### Code
+
+```python
+
+```
+
+### Reflection
