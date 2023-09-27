@@ -420,3 +420,33 @@ while True:
 ```
 
 ### Reflection
+
+Out of all the tasks that were assigned, the final Crash Avoidence took me the longest. In order to connect the OLED screen to the Pico/computer, there were a series of steps that consisted of downlaoding mulitple libraries, and using test code to locate the address of the accelerometer, and the OLED. Here is the test code I ran:
+
+```python
+#type: ignore
+
+import board
+import time
+import busio
+
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin)
+
+while not i2c.try_lock():
+    pass
+
+try:
+    while True:
+        print(
+            "I2C addresses found:",
+            [hex(device_address) for device_address in i2c.scan()],
+        )
+        time.sleep(2)
+
+finally:  # unlock the i2c bus when ctrl-c'ing out of the loop
+    i2c.unlock()
+```
+Also, didn't realize that in order for the OLED and the acceleromter to communicate, they need to share the SDA and SCL pins.
