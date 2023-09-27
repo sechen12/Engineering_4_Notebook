@@ -449,4 +449,5 @@ try:
 finally:  # unlock the i2c bus when ctrl-c'ing out of the loop
     i2c.unlock()
 ```
+If you run this code with the according pins, you can find the addresses in the Serial Monitor. To find the addresses of the OLED and the accelerometer specifically, you can unplug the power from one or the other and one address should cease from printing. The address that is still presented in the Serical Monitor, is the address of the OLED/accelerometer still getting power.
 Also, didn't realize that in order for the OLED and the acceleromter to communicate, they need to share the SDA and SCL pins.
