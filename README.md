@@ -372,6 +372,9 @@ Add an OLED screen to the previous task - display the acceleration values on an 
 [Crash_Avoidance_OLED_Screen.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/7e3d2df3-e860-463c-9bb3-80cd80173135)
 
 ### Wiring
+
+![IMG-6559](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/0dbc495a-85d5-4ee2-9cd8-65d363a81d0e)
+
 ### Code
 
 ```python
