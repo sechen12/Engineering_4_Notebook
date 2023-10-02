@@ -468,6 +468,7 @@ Create a beam within the [parameters](https://github.com/sechen12/Engineering_4_
 
 ### Part Image
 
+![Beam Starter + Holder](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/673c98ca-6363-4e1f-b6bc-40ca76358214)
 
 
 ### Reflection
