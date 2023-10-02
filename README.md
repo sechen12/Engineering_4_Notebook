@@ -459,11 +459,12 @@ Also, didn't realize that in order for the OLED and the acceleromter to communic
 ## Beam_Design
 
 ### Assignment Description
-Create a beam within the [file:///C:/Users/schen12.CCS/Downloads/Assignment%20Requirements_.pdf](#parameters) to hold the heaviest bucket.
-### Part Link 
+Create a beam within the [Assignment Requirements_.pdf](https://github.com/sechen12/Engineering_4_Notebook/files/12783413/Assignment.Requirements_.pdf) to hold the heaviest bucket.
+### Part Link
 
 [Create a link to your Onshape document](https://cvilleschools.onshape.com/documents/003e413cee57f7ccccaa15c2/w/ea71050bb283bf3bf088c96c/e/c85ae532263d3b551e1795d0?renderMode=0&uiState=62d9b9d7883c4f335ec42021). Don't forget to turn on link sharing in your Onshape document so that others can see it. 
 
 ### Part Image
 
 ### Reflection
+
