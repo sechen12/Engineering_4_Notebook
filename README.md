@@ -459,7 +459,7 @@ Also, didn't realize that in order for the OLED and the acceleromter to communic
 ## Beam_Design
 
 ### Assignment Description
-
+Create a beam within the [file:///C:/Users/schen12.CCS/Downloads/Assignment%20Requirements_.pdf](#parameters) to hold the heaviest bucket.
 ### Part Link 
 
 [Create a link to your Onshape document](https://cvilleschools.onshape.com/documents/003e413cee57f7ccccaa15c2/w/ea71050bb283bf3bf088c96c/e/c85ae532263d3b551e1795d0?renderMode=0&uiState=62d9b9d7883c4f335ec42021). Don't forget to turn on link sharing in your Onshape document so that others can see it. 
@@ -467,20 +467,3 @@ Also, didn't realize that in order for the OLED and the acceleromter to communic
 ### Part Image
 
 ### Reflection
-
-## Media Test
-
-Your readme will have various images and gifs on it. Upload a test image and test gif to make sure you've got the process figured out. Pick whatever image and gif you want!
-![Picture Name Here](images/your-image-name.png)
-
-### Test Link
-
-[Hyperlink text](raspberry-pi/test.py)
-
-### Test Image
-
-![Picture Name Here](https://raw.githubusercontent.com/sechen12/Engineering_4_Notebook/main/images/Yoda_SWSB.webp)https://raw.githubusercontent.com/sechen12/Engineering_4_Notebook/main/images/Yoda_SWSB.webp
-
-### Test GIF
-
-![Picture Name Here](https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true)https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true
