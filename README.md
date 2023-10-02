@@ -465,6 +465,6 @@ Create a beam within the [parameters](https://github.com/sechen12/Engineering_4_
 [Onshape Document](https://cvilleschools.onshape.com/documents/5517eb4141dde3d11583bfcf/w/76219d7db810f33e12052ceb/e/62c262db223382f79a959590?renderMode=0&uiState=651ad1bd196827695acf9253)
 
 ### Part Image
-
+![First rendor](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/9329fad1-2b94-4971-9cde-e51fefdcad36)
 ### Reflection
 
