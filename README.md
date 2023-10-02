@@ -458,6 +458,8 @@ Also, didn't realize that in order for the OLED and the acceleromter to communic
 
 ## Beam_Design
 
+![Beam Starter + Holder](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/7c9b42f9-15b4-4441-8c6a-b04791f8e3e7)
+
 ### Assignment Description
 Create a beam within the [parameters](https://github.com/sechen12/Engineering_4_Notebook/files/12783413/Assignment.Requirements_.pdf) to hold the heaviest bucket.
 ### Part Link
@@ -465,6 +467,8 @@ Create a beam within the [parameters](https://github.com/sechen12/Engineering_4_
 [Onshape Document](https://cvilleschools.onshape.com/documents/5517eb4141dde3d11583bfcf/w/76219d7db810f33e12052ceb/e/62c262db223382f79a959590?renderMode=0&uiState=651ad1bd196827695acf9253)
 
 ### Part Image
-![First rendor](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/9329fad1-2b94-4971-9cde-e51fefdcad36)
-### Reflection
 
+
+
+### Reflection
+My partner and I went through multiple rendors of the beam. While we were researching, we found that beams that are taller vertically, and have horizontal support along the tops and bottoms of the beam are strong. We also found that structures that have a ramp will diffuse the tension that is placed on the point where the beam and the cast is connected.
