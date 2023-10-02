@@ -5,13 +5,15 @@
 ## Table of Contents
 * [Raspberry_Pi_Assignment_Template](#raspberry_pi_assignment_template)
 * [Onshape_Assignment_Template](#onshape_assignment_template)
-* [Launchpad_1_Countdown](#Launchpad_1_Countdown)
-* [Launchpad_2_Lights](#Launchpad_2_Lights)
-* [Launchpad_3_Button](#Launchpad_3_Button)
-* [Launchpad_4_Servo](#Launchpad_4_Servo)
-* [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
-* [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
-* [Crash_Avoidance_OLED_Screen](#Crash_Avoidance_OLED_Screen)
+* (#Code)
+    * [Launchpad_1_Countdown](#Launchpad_1_Countdown)
+    * [Launchpad_2_Lights](#Launchpad_2_Lights)
+    * [Launchpad_3_Button](#Launchpad_3_Button)
+    * [Launchpad_4_Servo](#Launchpad_4_Servo)
+    * [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
+    * [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
+    * [Crash_Avoidance_OLED_Screen](#Crash_Avoidance_OLED_Screen)
+* [Beam_Design](#Beam_Design)
 
 &nbsp;
 
@@ -452,3 +454,32 @@ finally:  # unlock the i2c bus when ctrl-c'ing out of the loop
 If you run this code with the according pins, you can find the addresses in the Serial Monitor. To find the addresses of the OLED and the accelerometer specifically, you can unplug the power from one or the other and one address should cease from printing. The address that is still presented in the Serical Monitor, is the address of the OLED/accelerometer still getting power.
 
 Also, didn't realize that in order for the OLED and the acceleromter to communicate, they need to share the SDA and SCL pins.
+
+## Beam_Design
+
+### Assignment Description
+
+### Part Link 
+
+[Create a link to your Onshape document](https://cvilleschools.onshape.com/documents/003e413cee57f7ccccaa15c2/w/ea71050bb283bf3bf088c96c/e/c85ae532263d3b551e1795d0?renderMode=0&uiState=62d9b9d7883c4f335ec42021). Don't forget to turn on link sharing in your Onshape document so that others can see it. 
+
+### Part Image
+
+### Reflection
+
+## Media Test
+
+Your readme will have various images and gifs on it. Upload a test image and test gif to make sure you've got the process figured out. Pick whatever image and gif you want!
+![Picture Name Here](images/your-image-name.png)
+
+### Test Link
+
+[Hyperlink text](raspberry-pi/test.py)
+
+### Test Image
+
+![Picture Name Here](https://raw.githubusercontent.com/sechen12/Engineering_4_Notebook/main/images/Yoda_SWSB.webp)https://raw.githubusercontent.com/sechen12/Engineering_4_Notebook/main/images/Yoda_SWSB.webp
+
+### Test GIF
+
+![Picture Name Here](https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true)https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true
