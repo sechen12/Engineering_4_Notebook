@@ -480,7 +480,7 @@ Initially, our beam was wide and flat. We learned by researching strong beam str
 
 |Image of Iterations |Stress |Displacement |
 |-|-|-|
-|<img src="![Beam Version 2](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/f5899400-47be-4f1e-898a-befa120ed5c8)" width="400"> |<img src="https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/270a59ce-fcc0-43af-bf25-90dcb28b34d0" width="400"> |<img src="https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/c7cba57b-1d80-4629-b370-820978ddee8c" width="400"> |
+|<img src="https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/f5899400-47be-4f1e-898a-befa120ed5c8" width="400"> |<img src="https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/270a59ce-fcc0-43af-bf25-90dcb28b34d0" width="400"> |<img src="https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/c7cba57b-1d80-4629-b370-820978ddee8c" width="400"> |
 
 ### Reflection
 
