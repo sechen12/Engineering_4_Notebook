@@ -484,4 +484,4 @@ Initially, our beam was wide and flat. We learned by researching strong beam str
 
 ### Reflection
 
-Our beam went from being able to hold 6.774 lbs to around 8.2 lbs. We improved our beam by almost 2 pounds.
+Looking at the first image, our beam went from being able to hold 6.774 lbs to around 8.2 lbs. We improved our beam by almost 2 pounds.
