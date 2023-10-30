@@ -5,12 +5,19 @@
 ## Table of Contents
 * [Raspberry_Pi_Assignment_Template](#raspberry_pi_assignment_template)
 * [Onshape_Assignment_Template](#onshape_assignment_template)
-* [Launchpad_1_Countdown](#Launchpad_1_Countdown)
-* [Launchpad_2_Lights](#Launchpad_2_Lights)
-* [Launchpad_3_Button](#Launchpad_3_Button)
-* [Launchpad_4_Servo](#Launchpad_4_Servo)
-* [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
-* [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
+* [Code](#Code)
+    * [Launchpad_1_Countdown](#Launchpad_1_Countdown)
+    * [Launchpad_2_Lights](#Launchpad_2_Lights)
+    * [Launchpad_3_Button](#Launchpad_3_Button)
+    * [Launchpad_4_Servo](#Launchpad_4_Servo)
+    * [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
+    * [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
+    * [Crash_Avoidance_OLED_Screen](#Crash_Avoidance_OLED_Screen)
+* [Onshape](#Onshape)
+   * [Beam_Design](#Beam_Design)
+        * [FEA_Part_1](#FEA_Part_1)
+        * [FEA_Part_3](#FEA_Part_3)
+        * [FEA_Part_4](#FEA_Part_4)
 
 &nbsp;
 
@@ -75,7 +82,7 @@ Your readme will have various images and gifs on it. Upload a test image and tes
 ![Picture Name Here](https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true)https://github.com/sechen12/Engineering_4_Notebook/blob/main/images/yoda_gif.gif?raw=true
 
 
-## Launchpad_1_Countdown
+## **Launchpad_1_Countdown**
 
 ### Assignment Description
 
@@ -102,7 +109,7 @@ print("liftoff!") #print liftoff when the rest of the code is finished running
 Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines.
 
 
-## Launchpad_2_Lights
+## **Launchpad_2_Lights**
 
 ### Assignment Description
 
@@ -146,7 +153,7 @@ while True:
 This assignment was relatively simple and logical. THe main problem I had was with the wiring. One of the LEDs was broken, but I didn't know that until I tried a few other LEDs. It's important to examine all possibilities as to why the program may not be running properly.
 
 
-## Launchpad_3_Button
+## **Launchpad_3_Button**
 
 ### Assignment Description
 
@@ -199,7 +206,7 @@ if button.value == True:
 ```
 It was also recently clarified to me that the ```While True: ```statement is used to continuously run the code. This statement was important in the "Button" code becuase the program needed to constantly check if the button was true or false (off/on). I made the mistake of not using a "While True" statement in my intial code.
 
-## Launchpad_4_Servo
+## **Launchpad_4_Servo**
 
 ### Assignment Description
 
@@ -271,7 +278,7 @@ servo1.angle = 180
 ```
 I also learned in terms of wiring, that the pin VBUS has 5V, and that's where the power of the servo pin should go.
 
-## Crash_Avoidance_Accelerometer
+## **Crash_Avoidance_Accelerometer**
 
 ### Assignment Description
 
@@ -318,7 +325,7 @@ f = 0 # test variable
 f("This is an f-string {f} and {f}.")
 ```
 
-## Crash_Avoidance_Light_and_Power
+## **Crash_Avoidance_Light_and_Power**
 
 ### Assignment Description
 Using the values that we programed beofre in the accelerometer assignment, incorporate an LED that lights up when the acceleromter is tilted 90 degrees. The next step was adding a battery and a switch so that the Pico didn't have to be connected to the computer.
@@ -361,3 +368,160 @@ while True:
 
 ### Reflection
 I learned how to charge the battery; you have connect the battery to a 'battery charger', then connect it to a computer to let it charge for a few minutes before using it on the Pico. The coding portion of the assignment was the easiest concept to grasp. Becuase of mindless mistakes, the battery wouldn't connect to the Pico. For my next assignments, I can't forget that the breadboard rows run horizontally, and to connect wires together they need to be in the same row.
+
+## **Crash_Avoidance_OLED_Screen**
+
+### Assignment Description
+Add an OLED screen to the previous task - display the acceleration values on an OLED screen. The LED must turn on if the accelerometer is tilted 90 degrees, and the we must use a battery and a switch to power the code uploaded to the Pico, so that the Pico is diconnected from the breadboard.
+### Evidence
+
+[Crash_Avoidance_OLED_Screen.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/7e3d2df3-e860-463c-9bb3-80cd80173135)
+
+### Wiring
+
+![IMG-6559](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/0dbc495a-85d5-4ee2-9cd8-65d363a81d0e)
+
+### Code
+
+```python
+#type: ignore
+import adafruit_mpu6050
+import busio
+import board
+import time
+import digitalio
+from adafruit_display_text import label
+import adafruit_displayio_ssd1306
+import terminalio
+import displayio
+displayio.release_displays() #put this line just below your imports
+
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
+mpu = adafruit_mpu6050.MPU6050(i2c, address=0x68) # initializes the sensor
+led = digitalio.DigitalInOut(board.GP18)
+led.direction = digitalio.Direction.OUTPUT
+
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) # getting the computer to recognize the OLED
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
+
+while True:
+    if mpu.acceleration[0] > 9 or mpu.acceleration[2] < 0: # if the x value is greater than 9, or the z value is less than 2, turn the LED on
+        led.value = True
+    else:
+        led.value = False # if the statement isn't true, don't turn the LED on
+
+
+    splash = displayio.Group()
+    title = "ANGULAR VELOCITY" # gives a title to the OLED
+    text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5) # defines the perameters of the OLED
+    splash.append(text_area)
+    text_area.text = f"{title}\n x values:{round(mpu.gyro[0], 3)}\n y values:{round(mpu.gyro[1], 3)}\n z values:{round(mpu.gyro[2], 3)}" # f-string that prints the x, y, and z values on different lines on the OLED
+    display.show(splash) # display what is shown above
+
+## MPU adress = 0x68
+## OLED adress = 0x3d
+```
+
+### Reflection
+
+Out of all the tasks that were assigned, the final Crash Avoidence took me the longest. In order to connect the OLED screen to the Pico/computer, there were a series of steps that consisted of downlaoding mulitple libraries, and using test code to locate the address of the accelerometer, and the OLED. Here is the test code I ran:
+
+```python
+#type: ignore
+
+import board
+import time
+import busio
+
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin)
+
+while not i2c.try_lock():
+    pass
+
+try:
+    while True:
+        print(
+            "I2C addresses found:",
+            [hex(device_address) for device_address in i2c.scan()],
+        )
+        time.sleep(2)
+
+finally:  # unlock the i2c bus when ctrl-c'ing out of the loop
+    i2c.unlock()
+```
+If you run this code with the according pins, you can find the addresses in the Serial Monitor. To find the addresses of the OLED and the accelerometer specifically, you can unplug the power from one or the other and one address should cease from printing. The address that is still presented in the Serical Monitor, is the address of the OLED/accelerometer still getting power.
+
+Also, didn't realize that in order for the OLED and the acceleromter to communicate, they need to share the SDA and SCL pins.
+
+## **Beam_Design**
+
+## FEA_Part_1
+
+### Assignment Description
+Create a beam within the [parameters](https://github.com/sechen12/Engineering_4_Notebook/files/12783413/Assignment.Requirements_.pdf) to hold the heaviest bucket.
+
+### Evidence 
+<img src="https://github.com/aweder05/Engineering_4_Notebook/blob/main/images/Beam%20Starter%20+%20Holder.png?raw=true" width="400">
+
+### Part Link
+
+[Onshape Document](https://cvilleschools.onshape.com/documents/5517eb4141dde3d11583bfcf/w/76219d7db810f33e12052ceb/e/62c262db223382f79a959590?renderMode=0&uiState=651ad1bd196827695acf9253)
+
+
+
+<!-- ![Beam Starter + Holder](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/673c98ca-6363-4e1f-b6bc-40ca76358214)
+![Assembly 1 (1)](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/270a59ce-fcc0-43af-bf25-90dcb28b34d0)
+![Assembly v 1](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/c7cba57b-1d80-4629-b370-820978ddee8c) -->
+
+
+### Reflection
+My partner and I went through multiple rendors of the beam. While we were researching, we found that beams that are taller vertically, and have horizontal support along the tops and bottoms of the beam are strong. We also found that structures that have a ramp will diffuse the tension that is placed on the point where the beam and the cast is connected.
+
+Initially, our beam was wide and flat. We learned by researching strong beam structures, that the most structurally sound beams are taller vertically than horizontally wide. We then concentrated our beam's weight to being taller rather than wider. We played with the idea that if the beam is shaped like a ramp, thicker at the point where the beam meets the frame, and thinner at the end, the beam will be more likely to stay attached.
+
+## FEA_Part_3
+
+### Part Image
+
+|Image of Model |Stress |Displacement |
+|-|-|-|
+|<img src="https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/673c98ca-6363-4e1f-b6bc-40ca76358214" width="400"> |<img src="https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/270a59ce-fcc0-43af-bf25-90dcb28b34d0" width="400"> |<img src="https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/c7cba57b-1d80-4629-b370-820978ddee8c" width="400"> |
+
+### Reflection
+
+Looking at the first image, our beam went from being able to hold 6.774 lbs to around 8.2 lbs. We improved our beam by almost 2 pounds.
+
+Our reinforcement plan will aim to have less bend closer to the holder, and more evenly distribute the stress across our beam. To do this I will add a horizontal bracket on each side of the beam, jointed with the attachement. This will decrease overall displacement of the beam, while not adding too much weight to our beam in order to stay below a weight of 13 grams. 
+
+## FEA_Part_4
+
+### Assignment Description
+
+Using what we learned from the Onshape course we took during FEA Part 3, we were assigned to run the FEA simulations and ajust the beam accordingly. We had to stay within the parameters (had to be less than 13g in weight, and the beam was considered diqualified from the cometition if it bend past 35mm)
+
+
+### Reflection
+
+Looking at the first image, our beam went from being able to hold 6.774 lbs to around 8.2 lbs. We improved our beam by almost 2 pounds.
+
+### Part Link
+
+[Onshape Document](https://cvilleschools.onshape.com/documents/5517eb4141dde3d11583bfcf/w/76219d7db810f33e12052ceb/e/731981f9da0684932d2a38a5)
+
+### Part Image
+
+|Image of Model |Stress |Displacement |
+|-|-|-|
+|<img src="https://github.com/aweder05/Engineering_4_Notebook/blob/main/images/Beam%20Starter%20+%20Holder%20(1).png?raw=true" width="400"> |<img src="https://github.com/aweder05/Engineering_4_Notebook/blob/main/images/Assembly%201%20(2).png?raw=true" width="400"> |<img src="https://github.com/aweder05/Engineering_4_Notebook/blob/main/images/Assembly%201%20(3).png?raw=true" width="400"> |
+
+### Reflection
+
+The FEA simulation was very helpful in predicting where the beam was the most weak. Using the simulation, we could repair the areas that were weaker. One thing we learned from the inital beam design, and testing it, was that the point where the beam and the frame connected was weak. Using what we learned from the first iteration, we made the second beam to be better fused to the frame. When we tested our beam for the second time, the beam broke right before the point of connection.
+
+Our first beam did quite well on the first simulation, being able to hold around 7 pounds, while deforming 32mm. The stress for the beam was focused more in the middle-holder side of the beam, and we wanted it to be as close to the holder as possible. Our second beam was able to hold more towards 9 pounds, and was still able to keep a displacement towards 34mm.
