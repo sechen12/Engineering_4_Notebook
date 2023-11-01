@@ -13,6 +13,7 @@
     * [Crash_Avoidance_Accelerometer](#Crash_Avoidance_Accelerometer)
     * [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
     * [Crash_Avoidance_OLED_Screen](#Crash_Avoidance_OLED_Screen)
+    * [Landing_Area_Functions](#Landing_Area_Functions)
 * [Onshape](#Onshape)
    * [Beam_Design](#Beam_Design)
         * [FEA_Part_1](#FEA_Part_1)
@@ -458,6 +459,58 @@ finally:  # unlock the i2c bus when ctrl-c'ing out of the loop
 If you run this code with the according pins, you can find the addresses in the Serial Monitor. To find the addresses of the OLED and the accelerometer specifically, you can unplug the power from one or the other and one address should cease from printing. The address that is still presented in the Serical Monitor, is the address of the OLED/accelerometer still getting power.
 
 Also, didn't realize that in order for the OLED and the acceleromter to communicate, they need to share the SDA and SCL pins.
+
+## Landing_Area_Functions
+
+### Assignment Description
+### Evidence
+
+[Landing Area Functions.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/bf5fb5be-b978-4893-8e7c-174ea19c89d7)
+
+### Code
+```python
+#type: ignore
+
+import board
+
+def TriArea(x1,y1,x2,y2,x3,y3): # Creates a function to find the area
+    try: # Find the area if coordinates are valid
+        area = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) # Triangle area formula
+        return area
+    except: # If coordinates are invalid, run this code:
+        print("Invalid Coordinates")
+        area = 0
+        return area
+
+while True:
+    print("Point 1 Coordinates (x,y):") # Print so the person running code knows which point they're entering the corridnates for
+    p1 = input() # Point 1 is where somebody can put their deesired numbers
+    x1, y1 = p1.split(",") # Turn p1 into two variables separated by a comma
+    print(f"Point 1: ({p1})") # Confirm the coordinates (also puts parenthesis around the cooridnates if not already done so)
+
+    print("Point 2 Coordinates (x,y):") # Repeat for coordinate 2
+    p2 = input()
+    x2, y2 = p2.split(",")
+    print(f"Point 2: ({p2})")
+
+    print("Point 3 Coordinates (x,y):") # Repeat for coordinate 3
+    p3 = input()
+    x3, y3 = p3.split(",")
+    print(f"Point 3: ({p3})")
+
+    x1 = float(x1) # taking the cooridnates and turning them from strings to floats
+    x2 = float(x2)
+    x3 = float(x3)
+    y1 = float(y1)
+    y2 = float(y2)
+    y3 = float(y3)
+    
+    area = TriArea(x1,y1,x2,y2,x3,y3) # Plug in floats to find area
+    print(" ") # space
+    print(f"AREA IS: {area}")
+    print(" ") # space
+```
+### Reflection
 
 ## **Beam_Design**
 
