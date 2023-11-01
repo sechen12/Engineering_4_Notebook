@@ -463,11 +463,15 @@ Also, didn't realize that in order for the OLED and the acceleromter to communic
 ## Landing_Area_Functions
 
 ### Assignment Description
+
+We created a program that took values from somebody typing into the Serial Monitor in an (x,y) syntax. You do this 3 times (3 points of a triangle). The program then takes those values and either gives you an "error" message, or calculates the area of the triangle.
+
 ### Evidence
 
 [Landing Area Functions.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/bf5fb5be-b978-4893-8e7c-174ea19c89d7)
 
 ### Code
+
 ```python
 #type: ignore
 
@@ -498,7 +502,7 @@ while True:
     x3, y3 = p3.split(",")
     print(f"Point 3: ({p3})")
 
-    x1 = float(x1) # taking the cooridnates and turning them from strings to floats
+    x1 = float(x1) # taking the cooridnates and turning them from strings to floats - making the number recognizable to the comupter
     x2 = float(x2)
     x3 = float(x3)
     y1 = float(y1)
@@ -511,6 +515,12 @@ while True:
     print(" ") # space
 ```
 ### Reflection
+
+I had a lot of trouble grasping the idea of a ```float```. I learned that floats were important for making a string into a value that the computer recognizes as a number, not just a digit.
+
+I also tried to employ what I had learned from my previous assignments to this one. We learned how to break the code down into its small parts, and solve one problem at a time. The makes the task less daunting, and the code more comprehensible. For example, knowing that the end goal of the code was to calculate the area of the triangle, you can work on the section of the code that finds the area.
+
+Grant's code was really helpful in making the code. I didn't understand the use for a float and how to code for what is supposed to be presented in the Serial Monitor.
 
 ## **Beam_Design**
 
