@@ -14,6 +14,8 @@
     * [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
     * [Crash_Avoidance_OLED_Screen](#Crash_Avoidance_OLED_Screen)
     * [Landing_Area_Functions](#Landing_Area_Functions)
+    * [Landing_Area_Plotting](#Landing_Area_Plotting)
+
 * [Onshape](#Onshape)
    * [Beam_Design](#Beam_Design)
         * [FEA_Part_1](#FEA_Part_1)
@@ -521,6 +523,18 @@ I had a lot of trouble grasping the idea of a ```float```. I learned that floats
 I also tried to employ what I had learned from my previous assignments to this one. We learned how to break the code down into its small parts, and solve one problem at a time. The makes the task less daunting, and the code more comprehensible. For example, knowing that the end goal of the code was to calculate the area of the triangle, you can work on the section of the code that finds the area.
 
 Grant's code was really helpful in making the code. I didn't understand the use for a float and how to code for what is supposed to be presented in the Serial Monitor.
+
+## Landing_Area_Plotting
+
+### Assignment Description
+
+### Evidence
+
+### Wiring
+
+### Code
+
+### Reflection
 
 ## **Beam_Design**
 
