@@ -530,6 +530,8 @@ Grant's code was really helpful in making the code. I didn't understand the use 
 
 ### Evidence
 
+[Landing Area Part 2.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/c6a6b117-8b35-430c-affb-03dedab7e524)
+
 ### Wiring
 
 ### Code
