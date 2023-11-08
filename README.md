@@ -536,6 +536,12 @@ Building off of what we did last time, we had to graph/plot the traingle values 
 
 ### Wiring
 
+PicoW was wired to OLED Screen using the following
+* 3V3 (OUT) from the Pico  to Vin on the screen
+* SDA (Data) to GP14
+* SCL (Clk) to GP15
+* Ground to GND.
+
 ### Code
 
 ```python
@@ -623,7 +629,28 @@ while True:
 
 ```
 ### Reflection
+The most difficult part of the code was becoming familiar to the OLED dimensions. In order to plot the 3 points of the triangle, the program had to translate the values that the computer could calculate, into values the OLED screen could understand, and plot. Also, it is important to set the OLED up appropriately; there are many libraries to import in order to connect the OLED to the Pico:
+```python
+import displayio
+import time
+import busio
+import adafruit_displayio_ssd1306
+import terminalio
+from adafruit_display_text import label
+from adafruit_display_shapes.triangle import Triangle
+from adafruit_display_shapes.line import Line
+from adafruit_display_shapes.circle import Circle
 
+displayio.release_displays()
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
+
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) # getting the computer to recognize the OLED
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
+splash = displayio.Group() # Creating a display group
+```
 ## **Beam_Design**
 
 ## FEA_Part_1
