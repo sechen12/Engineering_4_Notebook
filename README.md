@@ -14,6 +14,8 @@
     * [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power)
     * [Crash_Avoidance_OLED_Screen](#Crash_Avoidance_OLED_Screen)
     * [Landing_Area_Functions](#Landing_Area_Functions)
+    * [Landing_Area_Plotting](#Landing_Area_Plotting)
+
 * [Onshape](#Onshape)
    * [Beam_Design](#Beam_Design)
         * [FEA_Part_1](#FEA_Part_1)
@@ -522,6 +524,133 @@ I also tried to employ what I had learned from my previous assignments to this o
 
 Grant's code was really helpful in making the code. I didn't understand the use for a float and how to code for what is supposed to be presented in the Serial Monitor.
 
+## Landing_Area_Plotting
+
+### Assignment Description
+
+Building off of what we did last time, we had to graph/plot the traingle values we had put into the Serial monitor, onto an OLED screen. The OLED screen should also print the area.
+
+### Evidence
+
+[Landing Area Part 2.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/c6a6b117-8b35-430c-affb-03dedab7e524)
+
+### Wiring
+
+PicoW was wired to OLED Screen using the following
+* 3V3 (OUT) from the Pico  to Vin on the screen
+* SDA (Data) to GP14
+* SCL (Clk) to GP15
+* Ground to GND.
+
+### Code
+
+```python
+#type: ignore
+import board
+import displayio
+import time
+import busio
+import adafruit_displayio_ssd1306
+import terminalio
+from adafruit_display_text import label
+from adafruit_display_shapes.triangle import Triangle
+from adafruit_display_shapes.line import Line
+from adafruit_display_shapes.circle import Circle
+
+displayio.release_displays()
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
+
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) # getting the computer to recognize the OLED
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
+splash = displayio.Group() # Creating a display group
+
+
+def TriArea(x1,y1,x2,y2,x3,y3): # Creates a function to find the area
+    try: # Find the area if coordinates are valid
+        area = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) # Triangle area formula
+        return area
+    except: # If coordinates are invalid, run this code:
+        print("Invalid Coordinates")
+        area = 0
+        return area
+
+while True:
+    print("Point 1 Coordinates (x,y):") # Print so the person running code knows which point they're entering the corridnates for
+    p1 = input() # Point 1 is where somebody can put their deesired numbers
+    x1, y1 = p1.split(",") # Turn p1 into two variables separated by a comma
+    print(f"Point 1: ({p1})") # Confirm the coordinates (also puts parenthesis around the cooridnates if not already done so)
+
+    print("Point 2 Coordinates (x,y):") # Repeat for coordinate 2
+    p2 = input()
+    x2, y2 = p2.split(",")
+    print(f"Point 2: ({p2})")
+
+    print("Point 3 Coordinates (x,y):") # Repeat for coordinate 3
+    p3 = input()
+    x3, y3 = p3.split(",")
+    print(f"Point 3: ({p3})")
+
+    x1 = float(x1) # taking the cooridnates and turning them from strings to floats
+    x2 = float(x2)
+    x3 = float(x3)
+    y1 = float(y1)
+    y2 = float(y2)
+    y3 = float(y3)
+    
+    area = TriArea(x1,y1,x2,y2,x3,y3) # Plug in floats to find area
+    print(" ") # space
+    print(f"AREA IS: {area}")
+    print(" ") # space
+
+    text_area = label.Label(terminalio.FONT, text= f"Area = {area}", color=0xFFFF00, x=5, y=5)
+    splash.append(text_area)
+
+    hline = Line(0,32,128,32, color=0xFFFF00)
+    splash.append(hline)
+    vline = Line(64,0,64,64, color=0xFFFF00)
+    splash.append(vline)
+
+    circle = Circle(64, 32, 2, outline=0xFFFF00)
+    splash.append(circle)
+
+    X1 = int(x1 + 64)
+    X2 = int(x2 + 64)
+    X3 = int(x3 + 64)
+    Y1 = int(-y1 + 32)
+    Y2 = int(-y2 + 32)
+    Y3 = int(-y3 + 32)
+
+    triangle = Triangle(X1, Y1, X2, Y2, X3, Y3, outline=0xFFFF00)
+    splash.append(triangle)
+    display.show(splash)
+
+```
+### Reflection
+The most difficult part of the code was becoming familiar to the OLED dimensions. In order to plot the 3 points of the triangle, the program had to translate the values that the computer could calculate, into values the OLED screen could understand, and plot. Also, it is important to set the OLED up appropriately; there are many libraries to import in order to connect the OLED to the Pico:
+```python
+import displayio
+import time
+import busio
+import adafruit_displayio_ssd1306
+import terminalio
+from adafruit_display_text import label
+from adafruit_display_shapes.triangle import Triangle
+from adafruit_display_shapes.line import Line
+from adafruit_display_shapes.circle import Circle
+
+displayio.release_displays()
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
+
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) # getting the computer to recognize the OLED
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
+splash = displayio.Group() # Creating a display group
+```
 ## **Beam_Design**
 
 ## FEA_Part_1
