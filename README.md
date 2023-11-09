@@ -15,7 +15,7 @@
     * [Crash_Avoidance_OLED_Screen](#Crash_Avoidance_OLED_Screen)
     * [Landing_Area_Functions](#Landing_Area_Functions)
     * [Landing_Area_Plotting](#Landing_Area_Plotting)
-
+    * [Morse_Code_Translation](#Morse_Code_Translation)
 * [Onshape](#Onshape)
    * [Beam_Design](#Beam_Design)
         * [FEA_Part_1](#FEA_Part_1)
@@ -651,6 +651,53 @@ display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) #
 display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
 splash = displayio.Group() # Creating a display group
 ```
+
+## Morse_Code_Translation
+
+### Assignment Description
+The assignment was to create a program that translated the alphabet into morse code. We were given the code for the translated morse code letters.
+### Evidence 
+https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/47506d09-9df5-4d51-8aa2-a1ddf6d83a4e
+### Code
+
+```python
+#type: ignore
+
+import board
+
+# Dictionary representing the morse code chart
+MORSE_CODE = { 'A':'.-', 'B':'-...',
+    'C':'-.-.', 'D':'-..', 'E':'.',
+    'F':'..-.', 'G':'--.', 'H':'....',
+    'I':'..', 'J':'.---', 'K':'-.-',
+    'L':'.-..', 'M':'--', 'N':'-.',
+    'O':'---', 'P':'.--.', 'Q':'--.-',
+    'R':'.-.', 'S':'...', 'T':'-',
+    'U':'..-', 'V':'...-', 'W':'.--',
+    'X':'-..-', 'Y':'-.--', 'Z':'--..',
+    '1':'.----', '2':'..---', '3':'...--',
+    '4':'....-', '5':'.....', '6':'-....',
+    '7':'--...', '8':'---..', '9':'----.',
+    '0':'-----', ', ':'--..--', '.':'.-.-.-',
+    '?':'..--..', '/':'-..-.', '-':'-....-',
+    '(':'-.--.', ')':'-.--.-'}
+
+while True:
+    print("Enter morse code message or -q to quit:")
+    text = input()
+    if text == "q":
+        print("quit")
+        break
+    else:
+        upper_text = text.upper()
+        for letter in upper_text:
+            print(MORSE_CODE[f"{letter}"], end=" ") #Print each letter in morse
+        print(" ")
+```
+### Reflection
+
+
+
 ## **Beam_Design**
 
 ## FEA_Part_1
