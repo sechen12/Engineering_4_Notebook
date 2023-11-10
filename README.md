@@ -696,7 +696,9 @@ while True:
 ```
 ### Reflection
 
+The morse code assignment was relatively simple. The only are where I struggled was understandig why it was important to use the ```upper.method()```. The ```upper.method()``` is used to help the computer understand the values the someone might be putting into the computer. If you look at the chunk of code where the morse code is translated, you will see that all of the leters translated are uppercase. When you use the ```upper.method()```, the computer will take the letters input by the user, and automatically make them uppercase so that the program can read the words.
 
+&nbsp;
 
 ## **Beam_Design**
 
