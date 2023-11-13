@@ -4,15 +4,9 @@ import board
 import digitalio
 import time
 
-<<<<<<< HEAD
 led = digitalio.DigitalInOut(board.GP0)
 led.direction = digital.Direction.OUTPUT
 save = " " # saves the input in the serial monitor so that the code can run all of its components
-=======
-led = digitalio.DigitalInOut(board.GP15)
-led.direction = digital.Direction.OUTPUT
-save = ""
->>>>>>> d0418f8ae6febb6f2ebbec715b4081b2a6c9f0af
 
 # Dictionary representing the morse code chart
 MORSE_CODE = { 'A':'.-', 'B':'-...',
@@ -39,7 +33,6 @@ between_letters = 3*modifier
 between_words = 7*modifier
 
 while True:
-<<<<<<< HEAD
     print("Enter morse code message or -q to quit:") # print this message whenever the code is run
     text = input() # making a variable to put the input
     if text == "q": # run this if-statement if somebody types "q", then stop the code
@@ -64,28 +57,3 @@ while True:
                 time.sleep(between_words) # if it's between words, do a “between words” pause
             led = False
             time.sleep(between_taps)
-=======
-    print("Enter morse code message or -q to quit:")
-    text = input()
-    if text == "q":
-        print("quit")
-        break
-    else:
-        upper_text = text.upper()
-        for letter in upper_text:
-            save = save + MORSE_CODE[letter] + " "
-            for letter in upper_text: #loop thru morse message
-            if save == "."
-                led = True
-                time.sleep(dot_time) # if character is a dot, do a short blink
-            if save == "-"
-                led = True
-                time.sleep(dash_time) # if character is a dash, do a long blink
-            if save == " "
-              led = False
-              time.sleep(between_letters) # if character is between letters, do a “between letters” pause
-            if save == "/"
-            led = False
-            time.sleep(between_words) # if it's between words, do a “between words” pause
-        print(" ")
->>>>>>> d0418f8ae6febb6f2ebbec715b4081b2a6c9f0af
