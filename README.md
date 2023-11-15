@@ -16,6 +16,7 @@
     * [Landing_Area_Functions](#Landing_Area_Functions)
     * [Landing_Area_Plotting](#Landing_Area_Plotting)
     * [Morse_Code_Translation](#Morse_Code_Translation)
+    * [Morse_Code_Transmission](#Morse_Code_Transmission)
 * [Onshape](#Onshape)
    * [Beam_Design](#Beam_Design)
         * [FEA_Part_1](#FEA_Part_1)
