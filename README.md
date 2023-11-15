@@ -698,6 +698,105 @@ while True:
 
 The morse code assignment was relatively simple. The only are where I struggled was understandig why it was important to use the ```upper.method()```. The ```upper.method()``` is used to help the computer understand the values the someone might be putting into the computer. If you look at the chunk of code where the morse code is translated, you will see that all of the leters translated are uppercase. When you use the ```upper.method()```, the computer will take the letters input by the user, and automatically make them uppercase so that the program can read the words.
 
+## Morse_Code_Transmission
+
+### Assignment Description
+
+### Evidence 
+
+![transmission](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/544929ed-43de-4c44-aaa9-120041994f54)
+
+### Wiring
+
+
+### Code
+
+python```
+
+#type: ignore
+
+import board
+import digitalio
+import time
+
+led = digitalio.DigitalInOut(board.GP0)
+led.direction = digitalio.Direction.OUTPUT
+save = " " # saves the input in the serial monitor so that the code can run all of its components
+
+# Dictionary representing the morse code chart
+MORSE_CODE = { 'A':'.-', 'B':'-...',
+    'C':'-.-.', 'D':'-..', 'E':'.',
+    'F':'..-.', 'G':'--.', 'H':'....',
+    'I':'..', 'J':'.---', 'K':'-.-',
+    'L':'.-..', 'M':'--', 'N':'-.',
+    'O':'---', 'P':'.--.', 'Q':'--.-',
+    'R':'.-.', 'S':'...', 'T':'-',
+    'U':'..-', 'V':'...-', 'W':'.--',
+    'X':'-..-', 'Y':'-.--', 'Z':'--..',
+    '1':'.----', '2':'..---', '3':'...--',
+    '4':'....-', '5':'.....', '6':'-....',
+    '7':'--...', '8':'---..', '9':'----.',
+    '0':'-----', ', ':'--..--', '.':'.-.-.-',
+    '?':'..--..', '/':'-..-.', '-':'-....-',
+    '(':'-.--.', ')':'-.--.-'}
+
+modifier = 0.25
+dot_time = 1*modifier
+dash_time = 3*modifier
+between_taps = 1*modifier
+between_letters = 3*modifier
+between_words = 7*modifier
+
+while True:
+    print("Enter morse code message or -q to quit:") # print this message whenever the code is run
+    text = input() # making a variable to put the input
+    if text == "q": # run this if-statement if somebody types "q", then stop the code
+        print("quit")
+        break
+    else: # if "q" isn't written, run this code
+        upper_text = text.upper() # making variable to help translate english into something the computer can read
+        for letter in upper_text:
+            save = save + MORSE_CODE[letter] + " " # save equals what it saved previously and the new input
+        print(f"translation"+ save)
+        for character in save: #loop thru morse message
+            if character == ".":
+                led.value = True
+                time.sleep(dot_time) # if character is a dot, do a short blink
+            elif character == "-":
+                led.value = True
+                time.sleep(dash_time) # if character is a dash, do a long blink
+            elif character == " ":
+                led.value = False
+                time.sleep(between_letters) # if character is between letters, do a “between letters” pause
+            elif character == "/":
+                led.value = False
+                time.sleep(between_words) # if it's between words, do a “between words” pause
+            led.value = False
+            time.sleep(between_taps)
+```
+### Reflection
+
+
+&nbsp;
+
+## Onshape_Assignment_Template
+
+### Assignment Description
+
+Write your assignment description here. What is the purpose of this assignment? It should be at least a few sentences.
+
+### Part Link 
+
+[Create a link to your Onshape document](https://cvilleschools.onshape.com/documents/003e413cee57f7ccccaa15c2/w/ea71050bb283bf3bf088c96c/e/c85ae532263d3b551e1795d0?renderMode=0&uiState=62d9b9d7883c4f335ec42021). Don't forget to turn on link sharing in your Onshape document so that others can see it. 
+
+### Part Image
+
+Take a nice screenshot of your Onshape document. 
+
+### Reflection
+
+What went wrong / was challenging, how'd you figure it out, and what did you learn from that experience? Your goal for the reflection is to pass on knowledge that will make this assignment better or easier for the next person. Think about your audience for this one, which may be "future you" (when you realize you need some of this code in three months), me, or your college admission committee!
+
 &nbsp;
 
 ## **Beam_Design**
