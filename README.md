@@ -711,8 +711,7 @@ The morse code assignment was relatively simple. The only are where I struggled 
 
 ### Code
 
-python```
-
+```python
 #type: ignore
 
 import board
