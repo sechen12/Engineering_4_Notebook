@@ -702,7 +702,7 @@ The morse code assignment was relatively simple. The only are where I struggled 
 ## Morse_Code_Transmission
 
 ### Assignment Description
-
+Use the code that we wrote for the morse code translation to translate the morse code into a series of blinks and pauses according to the translation.
 ### Evidence 
 
 ![transmission](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/544929ed-43de-4c44-aaa9-120041994f54)
@@ -775,7 +775,7 @@ while True:
             time.sleep(between_taps)
 ```
 ### Reflection
-
+The python coding is getting easier, but I have a habit of forgetting to add small thins to the code to make it work. For example, I forgot to put colons after the "if-statement" for a few of them, so the computer couldn't read what I was trying to say. I also forgo to add the ".value" after "led" when I wanted to control when the led was on or off.
 
 &nbsp;
 
