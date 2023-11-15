@@ -709,6 +709,7 @@ Use the code that we wrote for the morse code translation to translate the morse
 
 ### Wiring
 
+![WIN_20230912_10_36_38_Pro](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/1e97cb75-a83b-4a67-94e7-da0a4bc6e3bf)
 
 ### Code
 
