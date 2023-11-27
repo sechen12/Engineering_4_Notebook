@@ -28,13 +28,12 @@ with open("/data.csv", "a") as datalog:
             Led.value = True ## Turns on the Red LED
         else:
             Led.value = False ## Turns off the Red LED when the accelerometer is not tilted to exactly 90 degrees
-           
     
-        datalog.write(f"{time_elapsed},{Xaccel},{Yaccel},{Zaccel},{Tilted}\n") #Put the data into a chart
+            datalog.write(f"{time_elapsed},{Xaccel},{Yaccel},{Zaccel},{Tilted}\n") #Put the data into a chart
 
-        Led.value = True # LED cycle
-        time.sleep(.5)
-        Led.value = False
+            Led.value = True # LED cycle
+            time.sleep(.5)
+            Led.value = False
 
-        datalog.flush() # Save the data
-        time.sleep(.1)
+            datalog.flush() # Save the data
+            time.sleep(.1)
