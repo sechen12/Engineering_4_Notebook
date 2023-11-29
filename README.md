@@ -17,6 +17,7 @@
     * [Landing_Area_Plotting](#Landing_Area_Plotting)
     * [Morse_Code_Translation](#Morse_Code_Translation)
     * [Morse_Code_Transmission](#Morse_Code_Transmission)
+    * [Data_Storage](#Data_Storage)
 * [Onshape](#Onshape)
    * [Beam_Design](#Beam_Design)
         * [FEA_Part_1](#FEA_Part_1)
@@ -775,8 +776,62 @@ while True:
             led.value = False
             time.sleep(between_taps)
 ```
+
 ### Reflection
 The python coding is getting easier, but I have a habit of forgetting to add small thins to the code to make it work. For example, I forgot to put colons after the "if-statement" for a few of them, so the computer couldn't read what I was trying to say. I also forgo to add the ".value" after "led" when I wanted to control when the led was on or off.
+
+## Data_Storage
+
+### Assignment Description
+Write a program that can switch between data mode and code mode. While the Pico is switched into code mode, the code that you have written should save to the board, like normal. To actually run the code you have written, you have to switch into data mode. Through a series of steps, the data mode should store the data taken from the MPU sensor, into a CSV file. While the data is saving to the board, the LED should turn on whenever the MPU is tilted.
+### Evidence
+
+### Wiring
+[Crash_Avoidance_OLED_Screen.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/7e3d2df3-e860-463c-9bb3-80cd80173135)
+### Code
+
+```python
+#type: ignore
+import adafruit_mpu6050
+import busio
+import board
+import time
+import digitalio
+
+
+sda_pin = board.GP14 # defining serial data pin
+scl_pin = board.GP15 # defining serial clock pin
+i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
+mpu = adafruit_mpu6050.MPU6050(i2c) # initializes the sensor
+
+led = digitalio.DigitalInOut(board.GP0)
+led.direction = digitalio.Direction.OUTPUT
+tilt = 0
+with open("/data.csv", "a") as datalog:
+    while True:
+        XAcceleration = mpu.acceleration[0] ## States which value of the Tuple corresponds to which accelerometer value 
+        YAcceleration = mpu.acceleration[1] ## For Y
+        ZAcceleration = mpu.acceleration[2] ## For Z
+        
+        time.sleep(.1) ## Adds a slight pause after each cycle 
+
+        if ZAcceleration < 3:
+            led.value = True ## Turns on the Red LED
+            tilt = True
+        else:
+            led.value = True # LED cycle
+            time.sleep(.5)
+            led.value = False       
+            tilt = False    
+    
+        datalog.write(f"{time.monotonic()},{XAcceleration},{YAcceleration},{ZAcceleration},{tilt}\n") #Put the data into a chart
+
+        datalog.flush() # Save the data
+        time.sleep(.1)
+```
+
+### Reflection
+The code was taken almost directectly from the [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power). The only changes that were made were adding a line connecting the data file to the data stored on the Pico, and the writting that would be presented in the data file. My biggest problem was forgetting to add a variable that stored the condition of the MPU. Without this, the data couldn't be stored into the chart, because there wasn't any data.
 
 &nbsp;
 
