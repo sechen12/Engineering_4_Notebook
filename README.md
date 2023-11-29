@@ -783,11 +783,11 @@ The python coding is getting easier, but I have a habit of forgetting to add sma
 ## Data_Storage
 
 ### Assignment Description
-
-### Evidence 
+Write a program that can switch between data mode and code mode. While the Pico is switched into code mode, the code that you have written should save to the board, like normal. To actually run the code you have written, you have to switch into data mode. Through a series of steps, the data mode should store the data taken from the MPU sensor, into a CSV file. While the data is saving to the board, the LED should turn on whenever the MPU is tilted.
+### Evidence
 
 ### Wiring
-
+[Crash_Avoidance_OLED_Screen.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/7e3d2df3-e860-463c-9bb3-80cd80173135)
 ### Code
 
 ```python
@@ -831,7 +831,7 @@ with open("/data.csv", "a") as datalog:
 ```
 
 ### Reflection
-
+The code was taken almost directectly from the [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power). The only changes that were made were adding a line connecting the data file to the data stored on the Pico, and the writting that would be presented in the data file. My biggest problem was forgetting to add a variable that stored the condition of the MPU. Without this, the data couldn't be stored into the chart, because there wasn't any data.
 
 &nbsp;
 
