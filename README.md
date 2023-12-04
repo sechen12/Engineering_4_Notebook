@@ -111,8 +111,7 @@ print("liftoff!") #print liftoff when the rest of the code is finished running
 ```
 ### Reflection
 
-Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines. I worked with the person next to me, [Elias Garcia](https://github.com/egarcia28/Engineering_4_Notebook/tree/main/raspberry-pi)
-
+Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines. I worked with the person next to me, [Elias Garcia](https://github.com/egarcia28/Engineering_4_Notebook/tree/main/raspberry-pi). I copied my entire coding assignment from Elias Garcia. Here is a link to their notebook.
 
 ## **Launchpad_2_Lights**
 
