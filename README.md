@@ -184,7 +184,8 @@ Finally, you need to write the code for the servo, and by placing the line in th
 ```python
 servo1.angle = 180
 ```
-I also learned in terms of wiring, that the pin VBUS has 5V, and that's where the power of the servo pin should go.
+I also learned in terms of wiring, that the pin VBUS has 5V, and that's where the power of the servo pin should go. I used large portions of Elias Garcia's work in this assignment. https://github.com/egarcia28/Engineering_4_Notebook.
+
 
 ## **Crash_Avoidance_Accelerometer**
 
@@ -202,27 +203,7 @@ https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/e8f3c4e0-fcc
 
 ### Code
 
-```python
-#type: ignore
-import adafruit_mpu6050
-import busio
-import board
-import time
-import digitalio
-
-sda_pin = board.GP14 # defining serial data pin
-scl_pin = board.GP15 # defining serial clock pin
-i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
-mpu = adafruit_mpu6050.MPU6050(i2c) # initializes the sensor
-
-
-while True:
-    print(f"x accelteration: {mpu.acceleration[0]}.") # this is an 'f-string'; it's a certain syntax that helps print the variables clearer
-    print(f"y accelteration: {mpu.acceleration[1]}.")
-    print(f"z accelteration: {mpu.acceleration[2]}.")
-    print("")
-    time.sleep(.5)
-```
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Crash_Avoidance_Accelerometer.py)
 
 ### Reflection
 
@@ -232,11 +213,13 @@ f = 0 # test variable
 
 f("This is an f-string {f} and {f}.")
 ```
+I copied my entire coding assignment from Elias Garcia. Here is a link to their notebook. https://github.com/egarcia28/Engineering_4_Notebook/blob/main/raspberry-pi/crash_avoidance_1.py
 
 ## **Crash_Avoidance_Light_and_Power**
 
 ### Assignment Description
 Using the values that we programed beofre in the accelerometer assignment, incorporate an LED that lights up when the acceleromter is tilted 90 degrees. The next step was adding a battery and a switch so that the Pico didn't have to be connected to the computer.
+
 ### Evidence
 
 https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/76175425-ae79-4eae-a74b-491b1ea28142
