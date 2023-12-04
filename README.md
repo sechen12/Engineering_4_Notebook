@@ -230,35 +230,10 @@ https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/76175425-ae7
 
 ### Code
 
-```python
-#type: ignore
-import adafruit_mpu6050
-import busio
-import board
-import time
-import digitalio
-
-sda_pin = board.GP14 # defining serial data pin
-scl_pin = board.GP15 # defining serial clock pin
-i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
-mpu = adafruit_mpu6050.MPU6050(i2c) # initializes the sensor
-
-
-while True:
-    print(f"x accelteration: {mpu.acceleration[0]}.") # this is an 'f-string'; it's a certain syntax that helps print the variables clearer
-    print(f"y accelteration: {mpu.acceleration[1]}.")
-    print(f"z accelteration: {mpu.acceleration[2]}.")
-    print("")
-    time.sleep(.5)
-
-    if mpu.acceleration[0] > 9 or mpu.acceleration[2] < 0: # if the x value is greater than 9, or the z value is less than 2, turn the LED on
-        led.value = True
-    else:
-        led.value = False # if the statement isn't true, don't turn the LED on
-```
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Crash_Avoidance_Light%20%2B%20Power.py)
 
 ### Reflection
-I learned how to charge the battery; you have connect the battery to a 'battery charger', then connect it to a computer to let it charge for a few minutes before using it on the Pico. The coding portion of the assignment was the easiest concept to grasp. Becuase of mindless mistakes, the battery wouldn't connect to the Pico. For my next assignments, I can't forget that the breadboard rows run horizontally, and to connect wires together they need to be in the same row.
+I learned how to charge the battery; you have connect the battery to a 'battery charger', then connect it to a computer to let it charge for a few minutes before using it on the Pico. The coding portion of the assignment was the easiest concept to grasp. Becuase of mindless mistakes, the battery wouldn't connect to the Pico. For my next assignments, I can't forget that the breadboard rows run horizontally, and to connect wires together they need to be in the same row. # I used large portions of Elias Garcia's work in this assignment. https://github.com/egarcia28/Engineering_4_Notebook
 
 ## **Crash_Avoidance_OLED_Screen**
 
@@ -274,47 +249,7 @@ Add an OLED screen to the previous task - display the acceleration values on an 
 
 ### Code
 
-```python
-#type: ignore
-import adafruit_mpu6050
-import busio
-import board
-import time
-import digitalio
-from adafruit_display_text import label
-import adafruit_displayio_ssd1306
-import terminalio
-import displayio
-displayio.release_displays() #put this line just below your imports
-
-
-sda_pin = board.GP14 # defining serial data pin
-scl_pin = board.GP15 # defining serial clock pin
-i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
-mpu = adafruit_mpu6050.MPU6050(i2c, address=0x68) # initializes the sensor
-led = digitalio.DigitalInOut(board.GP18)
-led.direction = digitalio.Direction.OUTPUT
-
-display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) # getting the computer to recognize the OLED
-display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
-
-while True:
-    if mpu.acceleration[0] > 9 or mpu.acceleration[2] < 0: # if the x value is greater than 9, or the z value is less than 2, turn the LED on
-        led.value = True
-    else:
-        led.value = False # if the statement isn't true, don't turn the LED on
-
-
-    splash = displayio.Group()
-    title = "ANGULAR VELOCITY" # gives a title to the OLED
-    text_area = label.Label(terminalio.FONT, text=title, color=0xFFFF00, x=5, y=5) # defines the perameters of the OLED
-    splash.append(text_area)
-    text_area.text = f"{title}\n x values:{round(mpu.gyro[0], 3)}\n y values:{round(mpu.gyro[1], 3)}\n z values:{round(mpu.gyro[2], 3)}" # f-string that prints the x, y, and z values on different lines on the OLED
-    display.show(splash) # display what is shown above
-
-## MPU adress = 0x68
-## OLED adress = 0x3d
-```
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Crash_Avoidance_OLED_Screen.py)
 
 ### Reflection
 
@@ -348,7 +283,7 @@ finally:  # unlock the i2c bus when ctrl-c'ing out of the loop
 ```
 If you run this code with the according pins, you can find the addresses in the Serial Monitor. To find the addresses of the OLED and the accelerometer specifically, you can unplug the power from one or the other and one address should cease from printing. The address that is still presented in the Serical Monitor, is the address of the OLED/accelerometer still getting power.
 
-Also, didn't realize that in order for the OLED and the acceleromter to communicate, they need to share the SDA and SCL pins.
+Also, didn't realize that in order for the OLED and the acceleromter to communicate, they need to share the SDA and SCL pins. I used large portions of Elias Garcia's work in this assignment. https://github.com/egarcia28/Engineering_4_Notebook
 
 ## Landing_Area_Functions
 
