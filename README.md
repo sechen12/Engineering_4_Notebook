@@ -99,16 +99,8 @@ Using VS Code, make a program that counts down from 10, and when it reaches zero
 
 ### Code
 
-```python
-import time
-import board
-import digitalio
+[Code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Launchpad_I_countdown.py)
 
-for x in range(10):
-    print(10-x) #prints 10 --> 1 in descending order
-    time.sleep(1) #delays the count by one second in between numbers
-print("liftoff!") #print liftoff when the rest of the code is finished running
-```
 ### Reflection
 
 Using the loop made the coding much easier. I started the code using if-statements, but that caused my code to be overly long and complicated. To make the program countown from 10 to zero, you only need a total of 7 lines. I worked with the person next to me, [Elias Garcia](https://github.com/egarcia28/Engineering_4_Notebook/tree/main/raspberry-pi). I copied my entire coding assignment from Elias Garcia. Here is a link to their notebook.
@@ -129,32 +121,11 @@ To accompany the countdown, the assignment was to have 2 LEDs, one red, and one 
 
 ### Code
 
-```python
-#type: ignore
-import board
-import time
-import digitalio
-
-GLed = digitalio.DigitalInOut(board.GP0)
-GLed.direction = digitalio.Direction.OUTPUT
-RLed = digitalio.DigitalInOut(board.GP1)
-RLed.direction = digitalio.Direction.OUTPUT
-
-for x in range(10):
-    print(10-x) #prints 10 --> 1 in descending order
-    RLed.value = True
-    time.sleep(.5) #delays the count by one second in between numbers
-    RLed.value = False
-    time.sleep(.5)
-
-print("liftoff!") #print liftoff when the rest of the code is finished running
-while True:
-    GLed.value = True
-```
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Launch_Pad_II_Lights.py)
 
 ### Reflection
 
-This assignment was relatively simple and logical. THe main problem I had was with the wiring. One of the LEDs was broken, but I didn't know that until I tried a few other LEDs. It's important to examine all possibilities as to why the program may not be running properly.
+This assignment was relatively simple and logical. THe main problem I had was with the wiring. One of the LEDs was broken, but I didn't know that until I tried a few other LEDs. It's important to examine all possibilities as to why the program may not be running properly. # I copied my entire coding assignment from ELias Garcia. https://github.com/egarcia28/Engineering_4_Notebook/tree/main/raspberry-pi
 
 
 ## **Launchpad_3_Button**
@@ -173,34 +144,7 @@ Continuing off of Launchpad 1 and 2, now we have added a button to determine whe
 
 ### Code
 
-```python
-#type: ignore
-import board
-import time
-import digitalio
-
-GLed = digitalio.DigitalInOut(board.GP0)
-GLed.direction = digitalio.Direction.OUTPUT
-RLed = digitalio.DigitalInOut(board.GP1)
-RLed.direction = digitalio.Direction.OUTPUT
-button = digitalio.DigitalInOut(board.GP2)
-button.direction = digitalio.Direction.INPUT
-button.pull = digitalio.Pull.DOWN
-
-while True: # contiuously runs this loop
-    if button.value == True: # if the button is pressed, run this code
-        
-        for x in range(10):
-            print(10-x) #prints 10 --> 1 in descending order
-            RLed.value = True
-            time.sleep(.5) #delays the count by one second in between numbers
-            RLed.value = False
-            time.sleep(.5)
-
-        print("liftoff!") #print liftoff when the rest of the code is finished running
-        while True:
-            GLed.value = True
-```
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Lauchpad_III_Button.py)
 
 ### Reflection
 
@@ -208,7 +152,7 @@ This assignment was relatively staight foward. It was the fastest for me to comp
 ```python
 if button.value == True:
 ```
-It was also recently clarified to me that the ```While True: ```statement is used to continuously run the code. This statement was important in the "Button" code becuase the program needed to constantly check if the button was true or false (off/on). I made the mistake of not using a "While True" statement in my intial code.
+It was also recently clarified to me that the ```While True: ```statement is used to continuously run the code. This statement was important in the "Button" code becuase the program needed to constantly check if the button was true or false (off/on). I made the mistake of not using a "While True" statement in my intial code. I used large portions of Elias Garcia's work in this assignment. https://github.com/egarcia28/Engineering_4_Notebook
 
 ## **Launchpad_4_Servo**
 
