@@ -1,4 +1,6 @@
 #type: ignore
+# I copied my entire coding assignment from Elias Garcia. Here is a link to their notebook. https://github.com/egarcia28/Engineering_4_Notebook/blob/main/raspberry-pi/crash_avoidance_1.py
+
 import adafruit_mpu6050
 import busio
 import board

@@ -1,4 +1,5 @@
 #type: ignore
+# I used large portions of Elias Garcia's work in this assignment. https://github.com/egarcia28/Engineering_4_Notebook
 import board
 import time
 import digitalio

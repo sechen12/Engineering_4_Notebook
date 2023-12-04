@@ -1,4 +1,5 @@
 #type: ignore
+# I copied my entire coding assignment from ELias Garcia. https://github.com/egarcia28/Engineering_4_Notebook/tree/main/raspberry-pi
 import board
 import time
 import digitalio
