@@ -297,48 +297,8 @@ We created a program that took values from somebody typing into the Serial Monit
 
 ### Code
 
-```python
-#type: ignore
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Landing_Area_Part%201_(Functions))
 
-import board
-
-def TriArea(x1,y1,x2,y2,x3,y3): # Creates a function to find the area
-    try: # Find the area if coordinates are valid
-        area = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) # Triangle area formula
-        return area
-    except: # If coordinates are invalid, run this code:
-        print("Invalid Coordinates")
-        area = 0
-        return area
-
-while True:
-    print("Point 1 Coordinates (x,y):") # Print so the person running code knows which point they're entering the corridnates for
-    p1 = input() # Point 1 is where somebody can put their deesired numbers
-    x1, y1 = p1.split(",") # Turn p1 into two variables separated by a comma
-    print(f"Point 1: ({p1})") # Confirm the coordinates (also puts parenthesis around the cooridnates if not already done so)
-
-    print("Point 2 Coordinates (x,y):") # Repeat for coordinate 2
-    p2 = input()
-    x2, y2 = p2.split(",")
-    print(f"Point 2: ({p2})")
-
-    print("Point 3 Coordinates (x,y):") # Repeat for coordinate 3
-    p3 = input()
-    x3, y3 = p3.split(",")
-    print(f"Point 3: ({p3})")
-
-    x1 = float(x1) # taking the cooridnates and turning them from strings to floats - making the number recognizable to the comupter
-    x2 = float(x2)
-    x3 = float(x3)
-    y1 = float(y1)
-    y2 = float(y2)
-    y3 = float(y3)
-    
-    area = TriArea(x1,y1,x2,y2,x3,y3) # Plug in floats to find area
-    print(" ") # space
-    print(f"AREA IS: {area}")
-    print(" ") # space
-```
 ### Reflection
 
 I had a lot of trouble grasping the idea of a ```float```. I learned that floats were important for making a string into a value that the computer recognizes as a number, not just a digit.
@@ -367,90 +327,8 @@ PicoW was wired to OLED Screen using the following
 
 ### Code
 
-```python
-#type: ignore
-import board
-import displayio
-import time
-import busio
-import adafruit_displayio_ssd1306
-import terminalio
-from adafruit_display_text import label
-from adafruit_display_shapes.triangle import Triangle
-from adafruit_display_shapes.line import Line
-from adafruit_display_shapes.circle import Circle
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Landing_Area_Part_2_(Plotting))
 
-displayio.release_displays()
-
-sda_pin = board.GP14 # defining serial data pin
-scl_pin = board.GP15 # defining serial clock pin
-i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
-
-display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) # getting the computer to recognize the OLED
-display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
-splash = displayio.Group() # Creating a display group
-
-
-def TriArea(x1,y1,x2,y2,x3,y3): # Creates a function to find the area
-    try: # Find the area if coordinates are valid
-        area = 0.5 * abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) # Triangle area formula
-        return area
-    except: # If coordinates are invalid, run this code:
-        print("Invalid Coordinates")
-        area = 0
-        return area
-
-while True:
-    print("Point 1 Coordinates (x,y):") # Print so the person running code knows which point they're entering the corridnates for
-    p1 = input() # Point 1 is where somebody can put their deesired numbers
-    x1, y1 = p1.split(",") # Turn p1 into two variables separated by a comma
-    print(f"Point 1: ({p1})") # Confirm the coordinates (also puts parenthesis around the cooridnates if not already done so)
-
-    print("Point 2 Coordinates (x,y):") # Repeat for coordinate 2
-    p2 = input()
-    x2, y2 = p2.split(",")
-    print(f"Point 2: ({p2})")
-
-    print("Point 3 Coordinates (x,y):") # Repeat for coordinate 3
-    p3 = input()
-    x3, y3 = p3.split(",")
-    print(f"Point 3: ({p3})")
-
-    x1 = float(x1) # taking the cooridnates and turning them from strings to floats
-    x2 = float(x2)
-    x3 = float(x3)
-    y1 = float(y1)
-    y2 = float(y2)
-    y3 = float(y3)
-    
-    area = TriArea(x1,y1,x2,y2,x3,y3) # Plug in floats to find area
-    print(" ") # space
-    print(f"AREA IS: {area}")
-    print(" ") # space
-
-    text_area = label.Label(terminalio.FONT, text= f"Area = {area}", color=0xFFFF00, x=5, y=5)
-    splash.append(text_area)
-
-    hline = Line(0,32,128,32, color=0xFFFF00)
-    splash.append(hline)
-    vline = Line(64,0,64,64, color=0xFFFF00)
-    splash.append(vline)
-
-    circle = Circle(64, 32, 2, outline=0xFFFF00)
-    splash.append(circle)
-
-    X1 = int(x1 + 64)
-    X2 = int(x2 + 64)
-    X3 = int(x3 + 64)
-    Y1 = int(-y1 + 32)
-    Y2 = int(-y2 + 32)
-    Y3 = int(-y3 + 32)
-
-    triangle = Triangle(X1, Y1, X2, Y2, X3, Y3, outline=0xFFFF00)
-    splash.append(triangle)
-    display.show(splash)
-
-```
 ### Reflection
 The most difficult part of the code was becoming familiar to the OLED dimensions. In order to plot the 3 points of the triangle, the program had to translate the values that the computer could calculate, into values the OLED screen could understand, and plot. Also, it is important to set the OLED up appropriately; there are many libraries to import in order to connect the OLED to the Pico:
 ```python
@@ -483,40 +361,8 @@ The assignment was to create a program that translated the alphabet into morse c
 https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/47506d09-9df5-4d51-8aa2-a1ddf6d83a4e
 ### Code
 
-```python
-#type: ignore
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Morse_Code_Translation.py)
 
-import board
-
-# Dictionary representing the morse code chart
-MORSE_CODE = { 'A':'.-', 'B':'-...',
-    'C':'-.-.', 'D':'-..', 'E':'.',
-    'F':'..-.', 'G':'--.', 'H':'....',
-    'I':'..', 'J':'.---', 'K':'-.-',
-    'L':'.-..', 'M':'--', 'N':'-.',
-    'O':'---', 'P':'.--.', 'Q':'--.-',
-    'R':'.-.', 'S':'...', 'T':'-',
-    'U':'..-', 'V':'...-', 'W':'.--',
-    'X':'-..-', 'Y':'-.--', 'Z':'--..',
-    '1':'.----', '2':'..---', '3':'...--',
-    '4':'....-', '5':'.....', '6':'-....',
-    '7':'--...', '8':'---..', '9':'----.',
-    '0':'-----', ', ':'--..--', '.':'.-.-.-',
-    '?':'..--..', '/':'-..-.', '-':'-....-',
-    '(':'-.--.', ')':'-.--.-'}
-
-while True:
-    print("Enter morse code message or -q to quit:")
-    text = input()
-    if text == "q":
-        print("quit")
-        break
-    else:
-        upper_text = text.upper()
-        for letter in upper_text:
-            print(MORSE_CODE[f"{letter}"], end=" ") #Print each letter in morse
-        print(" ")
-```
 ### Reflection
 
 The morse code assignment was relatively simple. The only are where I struggled was understandig why it was important to use the ```upper.method()```. The ```upper.method()``` is used to help the computer understand the values the someone might be putting into the computer. If you look at the chunk of code where the morse code is translated, you will see that all of the leters translated are uppercase. When you use the ```upper.method()```, the computer will take the letters input by the user, and automatically make them uppercase so that the program can read the words.
@@ -535,68 +381,7 @@ Use the code that we wrote for the morse code translation to translate the morse
 
 ### Code
 
-```python
-#type: ignore
-
-import board
-import digitalio
-import time
-
-led = digitalio.DigitalInOut(board.GP0)
-led.direction = digitalio.Direction.OUTPUT
-save = " " # saves the input in the serial monitor so that the code can run all of its components
-
-# Dictionary representing the morse code chart
-MORSE_CODE = { 'A':'.-', 'B':'-...',
-    'C':'-.-.', 'D':'-..', 'E':'.',
-    'F':'..-.', 'G':'--.', 'H':'....',
-    'I':'..', 'J':'.---', 'K':'-.-',
-    'L':'.-..', 'M':'--', 'N':'-.',
-    'O':'---', 'P':'.--.', 'Q':'--.-',
-    'R':'.-.', 'S':'...', 'T':'-',
-    'U':'..-', 'V':'...-', 'W':'.--',
-    'X':'-..-', 'Y':'-.--', 'Z':'--..',
-    '1':'.----', '2':'..---', '3':'...--',
-    '4':'....-', '5':'.....', '6':'-....',
-    '7':'--...', '8':'---..', '9':'----.',
-    '0':'-----', ', ':'--..--', '.':'.-.-.-',
-    '?':'..--..', '/':'-..-.', '-':'-....-',
-    '(':'-.--.', ')':'-.--.-'}
-
-modifier = 0.25
-dot_time = 1*modifier
-dash_time = 3*modifier
-between_taps = 1*modifier
-between_letters = 3*modifier
-between_words = 7*modifier
-
-while True:
-    print("Enter morse code message or -q to quit:") # print this message whenever the code is run
-    text = input() # making a variable to put the input
-    if text == "q": # run this if-statement if somebody types "q", then stop the code
-        print("quit")
-        break
-    else: # if "q" isn't written, run this code
-        upper_text = text.upper() # making variable to help translate english into something the computer can read
-        for letter in upper_text:
-            save = save + MORSE_CODE[letter] + " " # save equals what it saved previously and the new input
-        print(f"translation"+ save)
-        for character in save: #loop thru morse message
-            if character == ".":
-                led.value = True
-                time.sleep(dot_time) # if character is a dot, do a short blink
-            elif character == "-":
-                led.value = True
-                time.sleep(dash_time) # if character is a dash, do a long blink
-            elif character == " ":
-                led.value = False
-                time.sleep(between_letters) # if character is between letters, do a “between letters” pause
-            elif character == "/":
-                led.value = False
-                time.sleep(between_words) # if it's between words, do a “between words” pause
-            led.value = False
-            time.sleep(between_taps)
-```
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Morse_Code_Transmission)
 
 ### Reflection
 The python coding is getting easier, but I have a habit of forgetting to add small thins to the code to make it work. For example, I forgot to put colons after the "if-statement" for a few of them, so the computer couldn't read what I was trying to say. I also forgo to add the ".value" after "led" when I wanted to control when the led was on or off.
@@ -611,45 +396,7 @@ Write a program that can switch between data mode and code mode. While the Pico 
 [Crash_Avoidance_OLED_Screen.webm](https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/7e3d2df3-e860-463c-9bb3-80cd80173135)
 ### Code
 
-```python
-#type: ignore
-import adafruit_mpu6050
-import busio
-import board
-import time
-import digitalio
-
-
-sda_pin = board.GP14 # defining serial data pin
-scl_pin = board.GP15 # defining serial clock pin
-i2c = busio.I2C(scl_pin, sda_pin) # allowing the sda and scl pins to communicate using one channel
-mpu = adafruit_mpu6050.MPU6050(i2c) # initializes the sensor
-
-led = digitalio.DigitalInOut(board.GP0)
-led.direction = digitalio.Direction.OUTPUT
-tilt = 0
-with open("/data.csv", "a") as datalog:
-    while True:
-        XAcceleration = mpu.acceleration[0] ## States which value of the Tuple corresponds to which accelerometer value 
-        YAcceleration = mpu.acceleration[1] ## For Y
-        ZAcceleration = mpu.acceleration[2] ## For Z
-        
-        time.sleep(.1) ## Adds a slight pause after each cycle 
-
-        if ZAcceleration < 3:
-            led.value = True ## Turns on the Red LED
-            tilt = True
-        else:
-            led.value = True # LED cycle
-            time.sleep(.5)
-            led.value = False       
-            tilt = False    
-    
-        datalog.write(f"{time.monotonic()},{XAcceleration},{YAcceleration},{ZAcceleration},{tilt}\n") #Put the data into a chart
-
-        datalog.flush() # Save the data
-        time.sleep(.1)
-```
+[code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Data_Storage)
 
 ### Reflection
 The code was taken almost directectly from the [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power). The only changes that were made were adding a line connecting the data file to the data stored on the Pico, and the writting that would be presented in the data file. My biggest problem was forgetting to add a variable that stored the condition of the MPU. Without this, the data couldn't be stored into the chart, because there wasn't any data.
