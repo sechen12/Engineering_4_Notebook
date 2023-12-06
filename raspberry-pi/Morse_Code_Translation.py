@@ -1,4 +1,5 @@
 #type: ignore
+# I copied my entire coding assignment from Grant Gastinger. https://github.com/ggastin30/Engineering_4_Notebook
 
 import board
 
