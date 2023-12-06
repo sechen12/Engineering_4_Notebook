@@ -305,7 +305,7 @@ I had a lot of trouble grasping the idea of a ```float```. I learned that floats
 
 I also tried to employ what I had learned from my previous assignments to this one. We learned how to break the code down into its small parts, and solve one problem at a time. The makes the task less daunting, and the code more comprehensible. For example, knowing that the end goal of the code was to calculate the area of the triangle, you can work on the section of the code that finds the area.
 
-Grant's code was really helpful in making the code. I didn't understand the use for a float and how to code for what is supposed to be presented in the Serial Monitor.
+Grant's code was really helpful in making the code. I didn't understand the use for a float and how to code for what is supposed to be presented in the Serial Monitor. I copied my entire coding assignment from Grant Gastinger. https://github.com/ggastin30/Engineering_4_Notebook
 
 ## Landing_Area_Plotting
 
@@ -352,6 +352,7 @@ display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=board.GP11) #
 display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64) # defining the OLED
 splash = displayio.Group() # Creating a display group
 ```
+I copied my entire coding assignment from Grant Gastinger. https://github.com/ggastin30/Engineering_4_Notebook
 
 ## Morse_Code_Translation
 
@@ -365,7 +366,7 @@ https://github.com/sechen12/Engineering_4_Notebook/assets/112981481/47506d09-9df
 
 ### Reflection
 
-The morse code assignment was relatively simple. The only are where I struggled was understandig why it was important to use the ```upper.method()```. The ```upper.method()``` is used to help the computer understand the values the someone might be putting into the computer. If you look at the chunk of code where the morse code is translated, you will see that all of the leters translated are uppercase. When you use the ```upper.method()```, the computer will take the letters input by the user, and automatically make them uppercase so that the program can read the words.
+The morse code assignment was relatively simple. The only are where I struggled was understandig why it was important to use the ```upper.method()```. The ```upper.method()``` is used to help the computer understand the values the someone might be putting into the computer. If you look at the chunk of code where the morse code is translated, you will see that all of the leters translated are uppercase. When you use the ```upper.method()```, the computer will take the letters input by the user, and automatically make them uppercase so that the program can read the words. I copied my entire coding assignment from Grant Gastinger. https://github.com/ggastin30/Engineering_4_Notebook
 
 ## Morse_Code_Transmission
 
@@ -384,7 +385,7 @@ Use the code that we wrote for the morse code translation to translate the morse
 [code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Morse_Code_Transmission)
 
 ### Reflection
-The python coding is getting easier, but I have a habit of forgetting to add small thins to the code to make it work. For example, I forgot to put colons after the "if-statement" for a few of them, so the computer couldn't read what I was trying to say. I also forgo to add the ".value" after "led" when I wanted to control when the led was on or off.
+The python coding is getting easier, but I have a habit of forgetting to add small thins to the code to make it work. For example, I forgot to put colons after the "if-statement" for a few of them, so the computer couldn't read what I was trying to say. I also forgo to add the ".value" after "led" when I wanted to control when the led was on or off. I copied my entire coding assignment from Grant Gastinger. https://github.com/ggastin30/Engineering_4_Notebook
 
 ## Data_Storage
 
@@ -399,7 +400,7 @@ Write a program that can switch between data mode and code mode. While the Pico 
 [code](https://github.com/sechen12/Engineering_4_Notebook/blob/main/raspberry-pi/Data_Storage)
 
 ### Reflection
-The code was taken almost directectly from the [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power). The only changes that were made were adding a line connecting the data file to the data stored on the Pico, and the writting that would be presented in the data file. My biggest problem was forgetting to add a variable that stored the condition of the MPU. Without this, the data couldn't be stored into the chart, because there wasn't any data.
+The code was taken almost directectly from the [Crash_Avoidance_Light_and_Power](#Crash_Avoidance_Light_and_Power). The only changes that were made were adding a line connecting the data file to the data stored on the Pico, and the writting that would be presented in the data file. My biggest problem was forgetting to add a variable that stored the condition of the MPU. Without this, the data couldn't be stored into the chart, because there wasn't any data. I copied my entire coding assignment from Anton Weder. https://github.com/aweder05/Engineering_4_Notebook
 
 &nbsp;
 
